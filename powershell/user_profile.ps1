@@ -20,7 +20,7 @@ Set-PsFzfOption -PSReadLineChordProvider 'Ctrl+f' -PSReadLineChordReverseHistory
 Set-Alias ll ls
 Set-Alias vim nvim
 Set-Alias g git
-Set-Alias gmi gitmoji 
+Set-Alias gmoji gitmoji 
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias neo 'C:\tools\neovide_comp\neovide.exe'
