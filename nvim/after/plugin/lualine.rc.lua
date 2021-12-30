@@ -68,14 +68,6 @@ local function modified()
   return ''
 end
 
-local function custom(buf_number)
-  local finded, _ = string.find(vim.bo[buf_number].filetype, "defx")
-  if finded ~= nil then
-    return false
-  end
-  return true
-end
-
 require('lualine').setup {
   options = {
     theme = nightfox,
@@ -89,10 +81,10 @@ require('lualine').setup {
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},
-    lualine_z = {},
+    lualine_z = {'tabs'},
   },
   sections = process_sections {
-    lualine_a = {'mode', custom},
+    lualine_a = {'mode'},
     lualine_b = {
       'branch',
       'diff',

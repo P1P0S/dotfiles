@@ -69,12 +69,11 @@ set formatoptions+=r
 " ---------------------------------------------------------------------
 set cursorline
 "set cursorcolumn
-
-" Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 
 highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
 
+" Set cursor line color on visual mode
 augroup BgHighlight
   autocmd!
   autocmd WinEnter * set cul
@@ -121,4 +120,3 @@ endif
 lua << EOF
 EOF
 "}}}
-

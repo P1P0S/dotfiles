@@ -41,10 +41,8 @@
   "diagnostic.warningSign": "\uf525",
   "diagnostic.infoSign": "\uf7fb",
   "diagnostic.hintSign": "\uf7d6",
-  "diagnostic-languageserver.filetypes": {
-  },
-  "diagnostic-languageserver.formatFiletypes": {
-  },
+  "diagnostic-languageserver.filetypes": {},
+  "diagnostic-languageserver.formatFiletypes": {},
   "signature.triggerSignatureWait": 300,
   "codeLens.enable": true,
   "codeLens.separator": "▸",
@@ -112,8 +110,7 @@
   "highlight.document.enable": true,
   "highlight.colors.enable": false,
   "highlight.disableLanguages": [],
-  "emmet.includeLanguages": {
-  },
+  "emmet.includeLanguages": {},
   "imselect.defaultInput": "com.apple.keylayout.ABC",
   "explorer.icon.enableNerdfont": true,
   "explorer.keyMappingMode": "none",
@@ -173,7 +170,7 @@
   "rust-analyzer.inlayHints.enable": false,
   "rust-analyzer.lens.enable": false,
   "python.analysis.typeCheckingMode": "basic",
-  "prettier.formatterPriority": -1,
+  "prettier.formatterPriority": 1,
   "sql.database": "mysql",
   "lua.installPreReleases": true,
   "Lua.workspace.library": {
