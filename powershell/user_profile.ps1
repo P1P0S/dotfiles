@@ -44,10 +44,10 @@ function take{
 
 function b64{
   if($args -eq "--decode"){
-    $arg = [System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($args[1]))
+    $arg = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($args[1]))
       $arg
   }elseif($args -eq "--encode"){
-    $arg = [System.Text.Encoding]::Unicode.GetBytes($args[1])
+    $arg = [System.Text.Encoding]::UTF8.GetBytes($args[1])
       $output = [Convert]::ToBase64String($arg)
       $output
   }else{
