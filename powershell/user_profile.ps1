@@ -3,16 +3,16 @@ pokemon
 
 #prompt
 Import-Module posh-git
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\spaceship.omp.json" | Invoke-Expression
+$omp_config = Join-Path $PSScriptRoot ".\poshmon.omp.json"
+oh-my-posh --init --shell pwsh --config $omp_config | Invoke-Expression
 
 #Icons
 Import-Module -Name Terminal-Icons
 
 #PSReadLine
-Set-PSReadLineOption -EditMode Emacs
+#Set-PSReadLineOption -EditMode Emacs
 Set-PSReadLineOption -BellStyle None
-Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
-Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionSource History -PredictionViewStyle InlineView
 
 #Fzf
 Import-Module PSFzf
@@ -31,7 +31,7 @@ Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 
 #Alias func
-function ll() { Get-ChildItem | Format-Table }
+function ll() { Get-ChildItem -Path . -Force | Format-Table }
 function la() { Get-ChildItem | Format-Wide }
 function lb() { Get-ChildItem | Format-List }
 function open() { Invoke-Item $args }
