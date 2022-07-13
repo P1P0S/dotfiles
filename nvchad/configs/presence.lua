@@ -2,16 +2,16 @@ return {
 require("presence"):setup({
     -- General options
     auto_update = true,
-    neovim_image_text = "Olá Curioso 👀",
+    neovim_image_text = "Hello strange 👽",
     enable_line_number = false,
     buttons = true,
 
-    editing_text = "Editando %s",
-    file_explorer_text = "Navegando pelo %s",
-    git_commit_text = "Comentando mudanças",
-    plugin_manager_text = "Manusenado plugins",
-    reading_text = "Escrevendo %s",
-    workspace_text = "Trabalhando em %s",
-    line_number_text = "Linha %s de %s",
+    editing_text = "Editing %s",
+    file_explorer_text = "Browsing %s",
+    git_commit_text = "Committing changes",
+    plugin_manager_text = "Managing plugins",
+    reading_text = "Reading %s",
+    workspace_text = "Working on %s",
+    line_number_text = "Line %s out of %s",
   }),
 }
