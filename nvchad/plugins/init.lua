@@ -5,6 +5,7 @@ return {
       require "custom.plugins.null-ls"
     end,
   },
+
   ["editorconfig/editorconfig-vim"] = {
     disable = false,
   },
@@ -15,15 +16,11 @@ return {
       require "custom.configs.alpha"
     end
   },
+
   ["andweeb/presence.nvim"] = {
     disable = false,
     config = function()
       require "custom.configs.presence"
     end
   },
-  ["lukas-reineke/indent-blankline.nvim"] = {
-    config = function ()
-      require "custom.configs.blankline"
-    end
-  }
 }

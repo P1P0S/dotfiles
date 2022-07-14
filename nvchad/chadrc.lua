@@ -1,5 +1,7 @@
 local M = {}
 
+local override = require "custom.override"
+
 M.ui = {
   theme_toggle = { "nightfox", "ayu-dark" },
   theme = "nightfox",
@@ -10,16 +12,21 @@ M.ui = {
 }
 
 M.plugins = {
-  user = require "custom.plugins",
+   user = require "custom.plugins",
 
-  options = {
-    lspconfig = {
-      setup_lspconf = "custom.plugins.lspconfig",
-    },
-  },
+   override = {
+      ["lewis6991/gitsigns.nvim"] = override.gitsigns,
+      ["lukas-reineke/indent-blankline.nvim"] = override.blankline,
+      ["kyazdani42/nvim-tree.lua"] = override.nvimtree,
+   },
+
+   options = {
+      lspconfig = {
+         setup_lspconf = "custom.plugins.lspconfig",
+      },
+   },
 }
 
-M.mappings = require("custom.configs.mappings")
-
+M.mappings = require "custom.configs.mappings"
 
 return M
