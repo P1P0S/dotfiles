@@ -20,5 +20,10 @@ return {
     config = function()
       require "custom.configs.presence"
     end
+  },
+  ["lukas-reineke/indent-blankline.nvim"] = {
+    config = function ()
+      require "custom.configs.blankline"
+    end
   }
 }
