@@ -1,10 +1,5 @@
 local M = {}
 
---blankline
-vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
-vim.opt.listchars:append("eol:↴")
-
 M.gitsigns = {
    signs = {
       add          = {hl = 'GitSignsAdd'   , text = '', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
@@ -47,20 +42,18 @@ M.nvimtree = {
 }
 
 M.blankline = {
-   show_current_context = true,
-   show_end_of_line = true,
-   filetype_exclude = {
-      "help",
-      "terminal",
-      "alpha",
-      "packer",
-      "lspinfo",
-      "TelescopePrompt",
-      "TelescopeResults",
-      "nvchad_cheatsheet",
-      "lsp-installer",
-      "",
-   },
+  filetype_exclude = {
+    "help",
+    "terminal",
+    "alpha",
+    "packer",
+    "lspinfo",
+    "TelescopePrompt",
+    "TelescopeResults",
+    "nvchad_cheatsheet",
+    "lsp-installer",
+    "norg",
+  },
 }
 
 return M
