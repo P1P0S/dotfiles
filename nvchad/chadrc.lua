@@ -27,6 +27,12 @@ M.plugins = {
    },
 }
 
+M.options = {
+   user = function ()
+      require "custom.options"
+   end
+}
+
 M.mappings = require "custom.configs.mappings"
 
 return M
