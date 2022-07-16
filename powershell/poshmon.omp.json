@@ -58,11 +58,11 @@
           "leading_diamond": "\ue0b6",
           "properties": {
             "fetch_package_manager": true,
-            "npm_icon": " <#cc3a3a>\ue5fa</> ",
+            "npm_icon": " <#cc3a3a>\ue71e</> ",
             "yarn_icon": " <#348cba>\uf61a</>"
           },
           "style": "diamond",
-          "template": "\ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}",
+          "template": "\ue719 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}",
           "trailing_diamond": "\ue0b4 ",
           "type": "node"
         },
