@@ -23,4 +23,11 @@ return {
       require "custom.configs.presence"
     end
   },
+  ["nvim-neorg/neorg"] = {
+    ft = "norg",
+    after = "nvim-treesitter",
+    config = function()
+      require "custom.configs.neorg"
+    end,
+  },
 }
