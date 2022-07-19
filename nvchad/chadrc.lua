@@ -4,11 +4,7 @@ local override = require "custom.override"
 
 M.ui = {
   theme_toggle = { "nightfox", "ayu-dark" },
-  theme = "nightfox",
-
-  tabufline = {
-    lazyload = false,
-  },
+  theme = "nightfox"
 }
 
 M.plugins = {
