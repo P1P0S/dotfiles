@@ -23,11 +23,21 @@ return {
       require "custom.configs.presence"
     end
   },
+
   ["nvim-neorg/neorg"] = {
     ft = "norg",
     after = "nvim-treesitter",
     config = function()
       require "custom.configs.neorg"
+    end,
+  },
+
+  ["mattn/emmet-vim"] = {},
+  
+  ["neovim/nvim-lspconfig"] = {
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.plugins.lspconfig"
     end,
   },
 }
