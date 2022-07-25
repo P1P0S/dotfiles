@@ -14,6 +14,7 @@ M.plugins = {
       ["lewis6991/gitsigns.nvim"] = override.gitsigns,
       ["lukas-reineke/indent-blankline.nvim"] = override.blankline,
       ["kyazdani42/nvim-tree.lua"] = override.nvimtree,
+      ["williamboman/mason"] = override.mason,
    },
 
    options = {
