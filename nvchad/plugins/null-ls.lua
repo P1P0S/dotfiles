@@ -16,6 +16,9 @@ end
 local sources = {
    -- webdev stuff
    b.formatting.prettier,
+   b.diagnostics.eslint.with({
+      condition = with_root_file(".eslintrc.js")
+   }),
 
    -- Lua
    b.formatting.stylua.with({
