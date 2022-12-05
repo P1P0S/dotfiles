@@ -1,34 +1,30 @@
+-- vim.opt = set
+-- vim.g = let
 local keymap = vim.keymap
+vim.g.mapleader = '<Space>'
 
-keymap.set('n', 'x', '"_x')
+keymap.set('n', 'x', '"_x') -- Not yank to clipboard
 
--- Increment/decrement
-keymap.set('n', '+', '<C-a>')
-keymap.set('n', '-', '<C-x>')
+keymap.set('n', 'db', 'vb"_d') -- Delete a word backwards
 
--- Delete a word backwards
-keymap.set('n', 'db', 'vb"_d')
+keymap.set('n', '<C-a>', 'gg<S-v>G') -- Select all
 
--- Select all
-keymap.set('n', '<C-a>', 'gg<S-v>G')
+keymap.set('n', '<C-s>', ':w<Return>') -- Save
 
--- Save with ctrl s
-keymap.set('n', '<C-s>', ':w<CR>')
+keymap.set('n', 'te', ':tabedit ') -- New tab
 
--- New tab
-keymap.set('n', 'te', ':tabedit')
 -- Split window
-keymap.set('n', 'ss', ':split<Return><C-w>w')
-keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
+keymap.set('n', '<Space>sh', ':split<Return><C-w>w')
+keymap.set('n', '<Space>sv', ':vsplit<Return><C-w>w')
+
 -- Move window
-keymap.set('n', '<Space>', '<C-w>w')
-keymap.set('', 'sh', '<C-w>h')
-keymap.set('', 'sk', '<C-w>k')
-keymap.set('', 'sj', '<C-w>j')
-keymap.set('', 'sl', '<C-w>l')
+keymap.set('', '<Space>h', '<C-w>h')
+keymap.set('', '<Space>j', '<C-w>j')
+keymap.set('', '<Space>k', '<C-w>k')
+keymap.set('', '<Space>l', '<C-w>l')
 
 -- Resize window
-keymap.set('n', '<C-w><left>', '<C-w><')
-keymap.set('n', '<C-w><right>', '<C-w>>')
-keymap.set('n', '<C-w><up>', '<C-w>+')
-keymap.set('n', '<C-w><down>', '<C-w>-')
+keymap.set('n', '<Space><left>', '<C-w><')
+keymap.set('n', '<Space><right>', '<C-w>>')
+keymap.set('n', '<Space><up>', '<C-w>+')
+keymap.set('n', '<Space><down>', '<C-w>-')

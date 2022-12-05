@@ -4,7 +4,24 @@ if (not status) then
   return
 end
 
-vim.cmd[[packadd packer.nvim]]
+vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
+  use 'wbthomason/packer.nvim'
+  use 'bluz71/vim-nightfly-colors'
+
+  
+  use 'windwp/nvim-autopairs'
+  use 'nvim-treesitter/nvim-treesitter'
+
+  use 'kyazdani42/nvim-web-devicons'
+  use 'nvim-lua/plenary.nvim' -- Utilities
+  use 'nvim-telescope/telescope.nvim' -- Finder file
+
+  use 'norcalli/nvim-colorizer.lua' -- Color highlighter
+  use 'nvim-lualine/lualine.nvim' -- Status line
+  use 'akinsho/nvim-bufferline.lua'
+
+  use 'neovim/nvim-lspconfig' -- LSP
+  --use 'jose-elias-alvarez/null-ls.nvim'
 end)
