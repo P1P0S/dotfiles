@@ -1,0 +1,23 @@
+require("nvim-treesitter.configs").setup({
+	indent = {
+		enable = true,
+	},
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+	indent = {
+		enable = true,
+		disable = {},
+	},
+	ensure_installed = {
+		"javascript",
+		"tsx",
+		"lua",
+		"json",
+		"css",
+	},
+	autotag = {
+		enable = true,
+	},
+})
