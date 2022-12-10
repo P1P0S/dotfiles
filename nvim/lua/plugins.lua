@@ -33,4 +33,6 @@ packer.startup(function(use)
 	use("glepnir/lspsaga.nvim")
 
 	use("jose-elias-alvarez/null-ls.nvim")
+
+	use("folke/which-key.nvim")
 end)

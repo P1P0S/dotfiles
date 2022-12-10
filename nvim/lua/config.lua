@@ -15,7 +15,9 @@ vim.opt.fileformat = unix
 
 vim.wo.number = true
 vim.wo.rnu = true
+vim.g.mapleader = " "
 
+vim.opt.ruler = true
 vim.opt.cursorline = true
 vim.opt.mouse = "a"
 vim.opt.title = true
