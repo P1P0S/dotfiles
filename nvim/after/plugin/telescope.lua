@@ -1,9 +1,9 @@
-local status, telescope = pcall(require, "telescope")
-if not status then
-	return
-end
+local telescope = require("telescope")
+local wk = require("which-key")
+
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
+local opts = { mode = "n", prefix = "<leader>", noremap = true, silent = true }
 
 local function telescope_buffer_dir()
 	return vim.fn.expand("%:p:h")
@@ -23,24 +23,41 @@ telescope.setup({
 
 -- telescope.load_extension("file_browser")
 
-vim.keymap.set("n", ";f", function()
-	builtin.find_files({
-		no_ignore = false,
-		hidden = true,
-	})
-end)
-vim.keymap.set("n", ";r", function()
-	builtin.live_grep()
-end)
-vim.keymap.set("n", "\\\\", function()
-	builtin.buffers()
-end)
-vim.keymap.set("n", ";t", function()
-	builtin.help_tags()
-end)
-vim.keymap.set("n", ";;", function()
-	builtin.resume()
-end)
-vim.keymap.set("n", ";e", function()
-	builtin.diagnostics()
-end)
+wk.register({
+	t = {
+		name = "Telescope",
+		f = {
+			function()
+				builtin.find_files({
+					no_ignore = false,
+					hidden = true,
+				})
+			end,
+			"Find File",
+		},
+		b = {
+			function()
+				builtin.buffers()
+			end,
+			"Show Buffers",
+		},
+		h = {
+			function()
+				builtin.help_tags()
+			end,
+			"Help Tags",
+		},
+		r = {
+			function()
+				builtin.resume()
+			end,
+			"Resume",
+		},
+		d = {
+			function()
+				builtin.diagnostics()
+			end,
+			"Diagnostics",
+		},
+	},
+}, opts)
