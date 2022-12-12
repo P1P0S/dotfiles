@@ -23,6 +23,7 @@ Set-Alias ls la
 Set-Alias l lb
 Set-Alias vim nvim
 Set-Alias cat bat
+Set-Alias lg lazygit
 
 #git alias
 Set-Alias gmoji gitmoji
