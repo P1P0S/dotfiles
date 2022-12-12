@@ -22,9 +22,9 @@ local on_attach = function(client, bufnr)
 		},
 	}, opts)
 
-	-- Disable Autoformat
-	client.resolved_capabilities.document_formatting = false
-	client.resolved_capabilities.document_range_formatting = false
+	-- Disable Autoformat deprecated on 0.8
+	--client.resolved_capabilities.document_formatting = false
+	--client.resolved_capabilities.document_range_formatting = false
 end
 
 local servers = { "tsserver", "sumneko_lua" }
