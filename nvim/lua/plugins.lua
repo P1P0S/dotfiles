@@ -9,6 +9,7 @@ vim.cmd([[packadd packer.nvim]])
 packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("bluz71/vim-nightfly-colors")
+	use("andweeb/presence.nvim")
 
 	use("windwp/nvim-autopairs")
 	use("nvim-treesitter/nvim-treesitter")
@@ -20,6 +21,7 @@ packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua") -- Color highlighter
 	use("nvim-lualine/lualine.nvim") -- Status line
 	use("akinsho/nvim-bufferline.lua")
+	use("nvim-tree/nvim-tree.lua")
 
 	use("williamboman/mason.nvim")
 	use("L3MON4D3/LuaSnip") -- Snippet
