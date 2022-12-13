@@ -38,4 +38,5 @@ packer.startup(function(use)
 
   use("folke/which-key.nvim")
   use("gelguy/wilder.nvim")
+  use("j-hui/fidget.nvim")
 end)
