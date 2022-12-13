@@ -48,4 +48,7 @@ wk.register({
 		p = { ":BufferLinePick<Return>", "Peeck Buffer" },
 		c = { ":BufferLinePickClose<Return>", "Peeck Buffer Close" },
 	},
+	e = {
+		{ ":NvimTreeToggle<Return>", "Open NvimTree" },
+	},
 }, opts)
