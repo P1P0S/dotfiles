@@ -7,7 +7,7 @@ keymap.set("n", "db", 'vb"_d') -- Delete a word backwards
 keymap.set("n", "<C-a>", "gg<S-v>G") -- Select all
 keymap.set("n", "<C-s>", ":w<Return>") -- Save
 keymap.set("n", "te", ":tabedit ") -- New tab
-
+keymap.set("n", "<C-x>", ":bdelete<CR>")
 -- Move window
 keymap.set("", "<C-h>", "<C-w>h")
 keymap.set("", "<C-j>", "<C-w>j")
@@ -22,33 +22,33 @@ keymap.set("n", "<A-down>", "<C-w>-")
 
 -- Wich-key map menu
 wk.register({
-	u = {
-		name = "Utils",
-		c = { ":set ff=unix<CR>", "Convert File To Unix" },
-		t = { ":tabedit", "Tab Edit" },
-		n = { ":noh<Return>", "Remove Search Highlight" },
-	},
-	w = {
-		name = "Window",
-		h = { ":split<Return><C-w>w", "Split Horizontal" },
-		v = { ":vsplit<Return><C-w>w", "Split Vertical" },
-	},
-	l = {
-		name = "LSP",
-		r = { "<Cmd>Lspsaga rename<CR>", "LSP Rename" },
-		j = { "<Cmd>Lspsaga diagnostic_jump_next<CR>", "LSP Jump Next Diagnostic" },
-		k = { "<Cmd>Lspsaga hover_doc<CR>", "LSP Hover Doc" },
-		f = { "<Cmd>Lspsaga lsp_finder<CR>", "LSP Finder" },
-		h = { "<Cmd>Lspsaga signature_help<CR>", "LSP Signature Help" },
-		p = { "<Cmd>Lspsaga peek_definition<CR>", "LSP Peek Definition" },
-		a = { "<Cmd>Lspsaga code_action<CR>", "LSP Code Action" },
-	},
-	b = {
-		name = "Buffers",
-		p = { ":BufferLinePick<Return>", "Peeck Buffer" },
-		c = { ":BufferLinePickClose<Return>", "Peeck Buffer Close" },
-	},
-	e = {
-		{ ":NvimTreeToggle<Return>", "Open NvimTree" },
-	},
+  u = {
+    name = "Utils",
+    c = { ":set ff=unix<CR>", "Convert File To Unix" },
+    t = { ":tabedit", "Tab Edit" },
+    n = { ":noh<Return>", "Remove Search Highlight" },
+  },
+  w = {
+    name = "Window",
+    h = { ":split<Return><C-w>w", "Split Horizontal" },
+    v = { ":vsplit<Return><C-w>w", "Split Vertical" },
+  },
+  l = {
+    name = "LSP",
+    r = { "<Cmd>Lspsaga rename<CR>", "LSP Rename" },
+    j = { "<Cmd>Lspsaga diagnostic_jump_next<CR>", "LSP Jump Next Diagnostic" },
+    k = { "<Cmd>Lspsaga hover_doc<CR>", "LSP Hover Doc" },
+    f = { "<Cmd>Lspsaga lsp_finder<CR>", "LSP Finder" },
+    h = { "<Cmd>Lspsaga signature_help<CR>", "LSP Signature Help" },
+    p = { "<Cmd>Lspsaga peek_definition<CR>", "LSP Peek Definition" },
+    a = { "<Cmd>Lspsaga code_action<CR>", "LSP Code Action" },
+  },
+  b = {
+    name = "Buffers",
+    p = { ":BufferLinePick<Return>", "Peeck Buffer" },
+    c = { ":BufferLinePickClose<Return>", "Peeck Buffer Close" },
+  },
+  e = {
+    { ":NvimTreeToggle<Return>", "Open NvimTree" },
+  },
 }, opts)
