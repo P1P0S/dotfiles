@@ -9,6 +9,7 @@ vim.cmd([[packadd packer.nvim]])
 packer.startup(function(use)
   use("wbthomason/packer.nvim")
   use("bluz71/vim-nightfly-colors")
+  use("maxmx03/FluoroMachine.nvim")
   use("andweeb/presence.nvim")
 
   use("windwp/nvim-autopairs")
