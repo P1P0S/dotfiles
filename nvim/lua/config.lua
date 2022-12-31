@@ -16,7 +16,7 @@ opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 opt.fileformat = "unix"
 
---vim.wo.number = true
+vim.wo.number = true
 wo.rnu = true
 g.mapleader = " "
 
