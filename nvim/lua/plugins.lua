@@ -8,8 +8,11 @@ vim.cmd([[packadd packer.nvim]])
 
 packer.startup(function(use)
   use("wbthomason/packer.nvim")
-  use("bluz71/vim-nightfly-colors")
+
+  use("bluz71/vim-nightfly-colors") -- Themes
   use("maxmx03/FluoroMachine.nvim")
+  use("catppuccin/nvim")
+
   use("andweeb/presence.nvim")
 
   use("windwp/nvim-autopairs")
@@ -26,6 +29,8 @@ packer.startup(function(use)
 
   use("williamboman/mason.nvim")
   use("L3MON4D3/LuaSnip") -- Snippet
+  use("saadparwaiz1/cmp_luasnip")
+  use("rafamadriz/friendly-snippets")
 
   use("neovim/nvim-lspconfig") -- LSP
 

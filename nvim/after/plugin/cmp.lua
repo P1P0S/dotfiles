@@ -1,5 +1,10 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+
+require("luasnip.loaders.from_vscode").lazy_load()
+
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 local winhighlight = {
   winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
@@ -29,6 +34,9 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "buffer" },
+    { name = "luasnip" },
+    { name = "nvim_lua" },
+    { name = "path" },
   }),
   formatting = {
     format = lspkind.cmp_format({ wirth_text = false, maxwidth = 50 }),
