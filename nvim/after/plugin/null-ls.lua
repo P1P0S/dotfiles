@@ -4,7 +4,10 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
-  formatting.prettierd,
+  formatting.prettier.with({
+    prefer_local = "node_modules\\.bin",
+    command = "prettier.cmd",
+  }),
   formatting.stylua,
   diagnostics.eslint_d.with({
     diagnostics_format = "[eslint] #{m}\n(#{c})",
@@ -15,7 +18,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
 
 null_ls.setup({
   sources = sources,
-  debug = false,
+  debug = true,
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -25,7 +28,7 @@ null_ls.setup({
         callback = function()
           --vim.lsp.buf.formatting_sync()
           -- vim 0.8
-          vim.lsp.buf.format({ bufnr = bufnr })
+          vim.lsp.buf.format({ timeout_ms = 2000 })
         end,
       })
     end

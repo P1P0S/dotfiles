@@ -1,20 +1,12 @@
 local nvim_lsp = require("lspconfig")
-local wk = require("which-key")
-
-local on_attach = function()
-  -- Mappings
-  local opts = { mode = "n", prefix = "<leader>", noremap = true, silent = true }
-
-  wk.register({
-    l = {
-      name = "LSP",
-      i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Open File Implementation" },
-    },
-  }, opts)
-end
 
 local servers = { "tsserver", "sumneko_lua", "html" }
 local capabilities = require("cmp_nvim_lsp").default_capabilities() -- nvim cmp
+
+local on_attach = function(client, bufnr)
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
+end
 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup({
