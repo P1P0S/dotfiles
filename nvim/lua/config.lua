@@ -20,8 +20,9 @@ vim.wo.number = true
 wo.rnu = true
 g.mapleader = " "
 
-opt.ruler = true
+opt.completeopt = "menu,menuone,noselect"
 opt.cursorline = true
+opt.ruler = true
 opt.mouse = "a"
 opt.title = true
 opt.autoindent = true
@@ -30,6 +31,7 @@ opt.hlsearch = true
 opt.backup = false
 opt.showcmd = true
 opt.cmdheight = 1
+opt.shortmess:append({ c = true, F = true, W = true, I = true })
 opt.laststatus = 2
 opt.expandtab = true
 opt.scrolloff = 10
@@ -48,4 +50,5 @@ opt.path:append({ "**" }) -- Finding files - Search down into subfolders
 opt.wildignore:append({ "*/node_modules/*" })
 opt.clipboard:prepend({ "unnamed", "unnamedplus" })
 --opt.guicursor = ""
+opt.colorcolumn = "90"
 opt.colorcolumn = "90"

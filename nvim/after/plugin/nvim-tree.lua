@@ -1,11 +1,16 @@
-require("nvim-tree").setup({
+local status, nvim_tree = pcall(require, "nvim-tree")
+if not status then
+  return
+end
+
+nvim_tree.setup({
   sort_by = "case_sensitive",
   disable_netrw = true,
   hijack_cursor = true,
   hijack_netrw = true,
 
   view = {
-    adaptive_size = false,
+    adaptive_size = true,
     --width = 20,
     mappings = {
       list = {

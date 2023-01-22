@@ -1,15 +1,17 @@
 -- Eviline config for lualine
 -- Author: shadmansaleh
 -- Credit: glepnir
-local lualine = require("lualine")
+local status, lualine = pcall(require, "lualine")
+if not status then
+  return
+end
 
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
   --bg       = '#202328',
   --bg       = '#1d3b53',
-  --bg_fluro = '#211a35',
-  fg       = '#bbc2cf',
+  bg_fluro = '#363a4f',
   yellow   = '#ECBE7B',
   cyan     = '#008080',
   darkblue = '#081633',
@@ -177,7 +179,7 @@ ins_left({
     end
     return msg
   end,
-  icon = " LSP:",
+  icon = "  LSP ~",
   color = { fg = "#e2d18a", gui = "bold" },
 })
 

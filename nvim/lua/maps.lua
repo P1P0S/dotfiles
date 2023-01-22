@@ -41,6 +41,7 @@ wk.register({
   },
   l = {
     name = "LSP",
+    o = { "<Cmd>Lspsaga outline<CR>", "LSP Outline" },
     r = { "<Cmd>Lspsaga rename<CR>", "LSP Rename" },
     j = { "<Cmd>Lspsaga diagnostic_jump_next<CR>", "LSP Jump Next Diagnostic" },
     k = { "<Cmd>Lspsaga hover_doc<CR>", "LSP Hover Doc" },

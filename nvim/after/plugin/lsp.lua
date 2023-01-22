@@ -1,6 +1,9 @@
-local nvim_lsp = require("lspconfig")
+local status, nvim_lsp = pcall(require, "lspconfig")
+if not status then
+  return
+end
 
-local servers = { "tsserver", "sumneko_lua", "html" }
+local servers = { "tsserver", "sumneko_lua", "html", "tailwindcss" }
 local capabilities = require("cmp_nvim_lsp").default_capabilities() -- nvim cmp
 
 local on_attach = function(client, bufnr)

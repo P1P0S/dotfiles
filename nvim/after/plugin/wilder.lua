@@ -1,6 +1,10 @@
-local wilder = require("wilder")
+local status, wilder = pcall(require, "wilder")
+if not status then
+  return
+end
 
 wilder.setup({
+  enable_cmdline_enter = true,
   modes = { ":", "/", "?" },
   next_key = "<Tab>",
   previous_key = "<S-Tab>",

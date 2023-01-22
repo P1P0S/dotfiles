@@ -1,7 +1,12 @@
-require("presence"):setup({
+local status, presence = pcall(require, "presence")
+if not status then
+  return
+end
+
+presence:setup({
   -- General options
   auto_update = true,
-  neovim_image_text = "Hello strange 👽",
+  neovim_image_text = " 👽 ",
   enable_line_number = false,
   buttons = true,
 
