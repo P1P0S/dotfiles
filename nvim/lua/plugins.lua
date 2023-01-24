@@ -8,6 +8,7 @@ vim.cmd([[packadd packer.nvim]])
 
 packer.startup(function(use)
   use("wbthomason/packer.nvim")
+  use("rcarriga/nvim-notify")
 
   use("bluz71/vim-nightfly-colors") -- Themes
   use("maxmx03/FluoroMachine.nvim")
