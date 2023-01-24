@@ -24,9 +24,8 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 keymap.set("n", "J", "mzJ`z")
 
-keymap.set("n", "<C-d>", "<C-d>zz") -- Scroll and place in the middle
-keymap.set("n", "<C-u>", "<C-u>zz")
-
+keymap.set("n", "<C-u>", "<C-u>zz") -- Scroll and place in the middle
+keymap.set("n", "<C-p>", "<C-d>zz")
 wk.register({
   u = {
     name = "Utils",
