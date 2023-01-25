@@ -15,7 +15,6 @@ lspsaga.setup({
     -- border type can be single,double,rounded,solid,shadow.
     border = "rounded",
     winblend = 5,
-    code_action = "💡",
     colors = {
       --float window normal bakcground color
       normal_bg = "#002b36",
