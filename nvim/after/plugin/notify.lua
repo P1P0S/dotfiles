@@ -3,4 +3,8 @@ if not status then
   return
 end
 
+notify.setup({
+  stages = "slide",
+})
+
 vim.notify = notify
