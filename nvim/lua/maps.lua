@@ -57,4 +57,8 @@ wk.register({
   e = {
     { ":NvimTreeToggle<Return>", "Open NvimTree" },
   },
+  s = {
+    ":lua require('packagereader').show_scripts()<CR>",
+    "Run PackageReader",
+  },
 }, opts)
