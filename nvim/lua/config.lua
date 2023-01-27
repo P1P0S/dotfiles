@@ -1,5 +1,6 @@
 -- vim.opt = set
 -- vim.g = let
+vim.cmd([[set shellquote= shellxquote=]])
 local opt = vim.opt
 local g = vim.g
 local wo = vim.wo
@@ -32,10 +33,13 @@ opt.backup = false
 opt.showcmd = true
 opt.cmdheight = 1
 opt.shortmess:append({ c = true, F = true, W = true, I = true })
-opt.laststatus = 2
+opt.laststatus = 3
 opt.expandtab = true
 opt.scrolloff = 10
 opt.shell = "pwsh"
+opt.shellcmdflag =
+  "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
 opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 opt.inccommand = "split"
 opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
