@@ -2,6 +2,7 @@ local wk = require("which-key")
 local keymap = vim.keymap
 local opts = { mode = "n", prefix = "<leader>", noremap = true, silent = true }
 
+keymap.set("n", "<C-q>", ":wq<CR>")
 keymap.set("n", "x", '"_x') -- Not yank to clipboard
 keymap.set("n", "db", 'vb"_d') -- Delete a word backwards
 keymap.set("n", "<C-a>", "gg<S-v>G") -- Select all
@@ -57,7 +58,7 @@ wk.register({
   e = {
     { ":NvimTreeToggle<Return>", "Open NvimTree" },
   },
-  s = {
+  p = {
     ":lua require('packagereader').show_scripts()<CR>",
     "Run PackageReader",
   },
