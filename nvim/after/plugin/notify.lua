@@ -4,7 +4,9 @@ if not status then
 end
 
 notify.setup({
-  stages = "slide",
+  stages = "fade",
+  timeout = 1000,
+  render = "default",
 })
 
 vim.notify = notify
