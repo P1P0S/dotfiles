@@ -14,9 +14,15 @@ bufferline.setup({
   options = {
     mode = "buffers",
     separator_style = "thin",
-    always_show_bufferline = true,
+    always_show_bufferline = false,
     show_buffer_close_icons = true,
     color_icons = true,
+    middle_mouse_command = "bdelete! %d",
+    diagnostics = "nvim_lsp",
+    diagnostics_indicator = function(count, level)
+      local icon = level:match("error") and " " or " "
+      return " " .. icon .. count
+    end,
   },
 })
 

@@ -2,7 +2,7 @@ local wk = require("which-key")
 local keymap = vim.keymap
 local opts = { mode = "n", prefix = "<leader>", noremap = true, silent = true }
 
-keymap.set("n", "<C-q>", ":wq<CR>")
+keymap.set("n", "<A-q>", ":wq<CR>")
 keymap.set("n", "x", '"_x') -- Not yank to clipboard
 keymap.set("n", "db", 'vb"_d') -- Delete a word backwards
 keymap.set("n", "<C-a>", "gg<S-v>G") -- Select all
@@ -52,8 +52,9 @@ wk.register({
   },
   b = {
     name = "Buffers",
-    p = { ":BufferLinePick<Return>", "Peeck Buffer" },
-    c = { ":BufferLinePickClose<Return>", "Peeck Buffer Close" },
+    p = { ":BufferLinePick<CR>", "Peeck Buffer" },
+    c = { ":BufferLinePickClose<CR>", "Close Buffer" },
+    t = { ":BufferLineTogglePin<CR>", "Pin Buffer" },
   },
   e = {
     { ":NvimTreeToggle<Return>", "Open NvimTree" },
