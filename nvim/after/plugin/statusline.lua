@@ -11,7 +11,7 @@ end
 local colors = {
   --bg       = '#202328',
   --bg       = '#1d3b53',
-  bg_fluro = '#363a4f',
+  bg_fluro = '#343852',
   yellow   = '#ECBE7B',
   cyan     = '#008080',
   darkblue = '#081633',
