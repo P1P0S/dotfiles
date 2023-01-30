@@ -18,6 +18,11 @@ telescope.setup({
       },
     },
   },
+  pickers = {
+    colorscheme = {
+      enable_preview = true,
+    },
+  },
 })
 
 wk.register({
@@ -61,6 +66,12 @@ wk.register({
         builtin.diagnostics()
       end,
       "Diagnostics",
+    },
+    c = {
+      function()
+        builtin.colorscheme()
+      end,
+      "Colorscheme",
     },
   },
 }, opts)
