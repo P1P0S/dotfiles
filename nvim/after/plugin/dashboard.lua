@@ -6,16 +6,25 @@ end
 db.setup({
   theme = "hyper",
   config = {
+
+    header = {
+      "",
+      " ██▓███    ██▓ ██▓███   ▒█████    ██████ ",
+      "▓██░  ██ ▒▓██▒▓██░  ██ ▒██▒  ██▒▒██    ▒ ",
+      "▓██░ ██▓▒▒▒██▒▓██░ ██▓▒▒██░  ██▒░ ▓██▄   ",
+      "▒██▄█▓▒ ▒░░██░▒██▄█▓▒ ▒▒██   ██░  ▒   ██▒",
+      "▒██▒ ░  ░░░██░▒██▒ ░  ░░ ████▓▒░▒██████▒▒",
+      "▒▓▒░ ░  ░ ░▓  ▒▓▒░ ░  ░░ ▒░▒░▒░ ▒ ▒▓▒ ▒ ░",
+      "░▒ ░     ░ ▒ ░░▒ ░       ░ ▒ ▒░ ░ ░▒  ░ ░",
+      "░░       ░ ▒ ░░░       ░ ░ ░ ▒  ░  ░  ░  ",
+      "           ░               ░ ░        ░  ",
+      "",
+    },
+
     week_header = {
       enable = true,
     },
     shortcut = {
-      {
-        desc = "󰗼 Close",
-        group = "DiagnosticHint",
-        action = "qa!",
-        key = "q",
-      },
       {
         desc = " Update",
         group = "@property",
@@ -25,7 +34,7 @@ db.setup({
       {
         desc = " Files",
         group = "Label",
-        action = "Telescope find_files cwd=",
+        action = "Telescope find_files find_command=rg,--hidden,--files",
         key = "f",
       },
       {
@@ -39,6 +48,12 @@ db.setup({
         group = "Number",
         action = ":e $MYVIMRC | cd %:p:h",
         key = "d",
+      },
+      {
+        desc = " Quit",
+        group = "@macro",
+        action = "q!",
+        key = "q",
       },
     },
   },
