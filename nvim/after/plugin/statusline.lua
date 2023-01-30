@@ -85,10 +85,15 @@ end
 
 ins_left({
   function()
-    return "▊"
+    local current_line = vim.fn.line(".")
+    local total_lines = vim.fn.line("$")
+    local chars = { "█ ", "▇ ", "▆ ", "▅ ", "▄ ", "▃ ", "▂ ", "▁ ", "_ " }
+    local line_ratio = current_line / total_lines
+    local index = math.ceil(line_ratio * #chars)
+    return chars[index]
   end,
-  color = { fg = colors.blue }, -- Sets highlighting of component
-  padding = { left = 0, right = 1 }, -- We don't need space before this
+  color = { fg = colors.blue },
+  padding = { left = 0 },
 })
 
 ins_left({
@@ -138,10 +143,6 @@ ins_left({
   cond = conditions.buffer_not_empty,
   color = { fg = colors.magenta, gui = "bold" },
 })
-
---ins_left({ "location" })
-
-ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
 
 ins_left({
   "diagnostics",
@@ -222,8 +223,18 @@ ins_right({
 })
 
 ins_right({
+  "progress",
+  color = { fg = colors.fg, gui = "bold" },
+})
+
+ins_right({
   function()
-    return "▊"
+    local current_line = vim.fn.line(".")
+    local total_lines = vim.fn.line("$")
+    local chars = { "_", "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" }
+    local line_ratio = current_line / total_lines
+    local index = math.ceil(line_ratio * #chars)
+    return chars[index]
   end,
   color = { fg = colors.blue },
   padding = { left = 1 },
