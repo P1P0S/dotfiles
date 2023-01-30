@@ -20,10 +20,10 @@ nvim_tree.setup({
     float = {
       enable = true,
       open_win_config = {
-        relative = "editor",
+        relative = "cursor",
         border = "rounded",
         width = 24,
-        height = 28,
+        height = 15,
         row = 1,
         col = 1,
       },
