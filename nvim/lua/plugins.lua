@@ -1,12 +1,17 @@
-local status, packer = pcall(require, "packer")
-if not status then
-  print("Packer is not installed")
-  return
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+    vim.cmd([[packadd packer.nvim]])
+    return true
+  end
+  return false
 end
 
-vim.cmd([[packadd packer.nvim]])
+local packer_bootstrap = ensure_packer()
 
-packer.startup(function(use)
+return require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
   use("rcarriga/nvim-notify")
 
@@ -53,4 +58,10 @@ packer.startup(function(use)
   use("lewis6991/gitsigns.nvim")
   use("glepnir/dashboard-nvim")
   use("windwp/nvim-ts-autotag")
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if packer_bootstrap then
+    require("packer").sync()
+  end
 end)
