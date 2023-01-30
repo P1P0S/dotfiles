@@ -13,6 +13,8 @@ packer.startup(function(use)
   use("bluz71/vim-nightfly-colors") -- Themes
   use("maxmx03/FluoroMachine.nvim")
   use("catppuccin/nvim")
+  use("EdenEast/nightfox.nvim")
+  use("folke/tokyonight.nvim")
 
   use("andweeb/presence.nvim")
 
