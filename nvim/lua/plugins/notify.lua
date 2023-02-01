@@ -10,7 +10,7 @@ return {
   end,
   keys = {
     {
-      "<leader>nd",
+      "<leader>ud",
       function()
         require("notify").dismiss({ silent = true, pending = true })
       end,
