@@ -1,7 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   config = function()
-    Servers = { "tsserver", "sumneko_lua", "html", "tailwindcss" }
+    Servers = require("utils.lists").lspservers
     local capabilities = require("cmp_nvim_lsp").default_capabilities() -- nvim cmp
     local nvim_lsp = require("lspconfig")
     local on_attach = function(client)
@@ -44,7 +44,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
       config = function()
         require("mason-lspconfig").setup({
-          ensure_indelled = { Servers },
+          ensure_installed = Servers,
           automatic_installation = true,
         })
       end,
