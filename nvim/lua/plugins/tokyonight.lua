@@ -1,6 +1,7 @@
 return {
   "folke/tokyonight.nvim",
-  init = function()
+  config = function()
     require("tokyonight").setup()
   end,
+  -- lazy = true,
 }
