@@ -65,4 +65,16 @@ wk.register({
     ":lua require('packagereader').show_scripts()<CR>",
     "Run PackageReader",
   },
+  g = {
+    name = "Git",
+    n = { ":Gitsigns next_hunk<cr>", "Next Hunk" },
+    p = { ":Gitsigns prev_hunk<cr>", "Prev Hunk" },
+    t = {
+      name = "toggle",
+      t = { ":Gitsigns toggle_current_line_blame<cr>", "Toggle Current Line Blame" },
+      d = { ":Gitsigns toggle_deleted<cr>", "Toggle Deleted" },
+    },
+    b = { ":Gitsigns blame_line<cr>", "Blame Line" },
+    d = { ":Gitsigns diffthis<cr>", "Diff" },
+  },
 }, opts)
