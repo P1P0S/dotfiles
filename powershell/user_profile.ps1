@@ -21,7 +21,7 @@ Set-PsFzfOption -PSReadLineChordProvider 'Ctrl+f' -PSReadLineChordReverseHistory
 #Alias
 Set-Alias ls la
 Set-Alias l lb
-Set-Alias vim nvim
+Set-Alias vi nvim
 Set-Alias cat bat
 Set-Alias lg lazygit
 
