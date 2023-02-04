@@ -2,6 +2,11 @@ local wk = require("which-key")
 local keymap = vim.keymap
 local opts = { mode = "n", prefix = "<leader>", noremap = true, silent = true }
 
+-- Pomodoro func
+local function pc(func)
+  return "<Cmd>lua require('pommodoro-clock')." .. func .. "<CR>"
+end
+
 keymap.set("n", "<A-q>", ":wq<CR>")
 keymap.set("n", "x", '"_x') -- Not yank to clipboard
 keymap.set("n", "db", 'vb"_d') -- Delete a word backwards
@@ -149,11 +154,23 @@ wk.register({
 
   -- Format
   f = {
-    "<cmd> lua vim.lsp.buf.format({ timeout_ms = 2000 }) <cr>", "Format"
+    "<cmd> lua vim.lsp.buf.format({ timeout_ms = 2000 }) <cr>",
+    "Format",
   },
 
   -- Dashboard
   d = {
-    "<cmd> Dashboard <cr>", "Dashboard"
-  }
+    "<cmd> Dashboard <cr>",
+    "Dashboard",
+  },
+
+  -- Pomodoro
+  P = {
+    name = "Pommodoro",
+    w = { pc('start("work")'), "Start Pommodoro" },
+    s = { pc('start("short_break")'), "Short Break" },
+    l = { pc('start("long_break")'), "Long Break" },
+    p = { pc("toggle_pause()"), "Toggle Pause" },
+    c = { pc("close()"), "Close" },
+  },
 }, opts)
