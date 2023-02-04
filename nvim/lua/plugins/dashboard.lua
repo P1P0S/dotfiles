@@ -32,7 +32,7 @@ return {
           {
             desc = " Files",
             group = "Label",
-            action = "Telescope find_files find_command=rg,--hidden,--files",
+            action = "Telescope find_files",
             key = "f",
           },
           {

@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 --@diagnostic disable: undefined-global
 local M = {}
 local autocmd = vim.api.nvim_create_autocmd
@@ -35,6 +36,7 @@ M.dashboard = function()
     callback = function()
       if vim.fn.argc() == 0 and vim.fn.line2byte("$") == -1 then
         vim.cmd("Dashboard")
+        require("lazy").load({ plugins = "telescope.nvim" })
       end
     end,
   })
