@@ -45,5 +45,5 @@ return {
     })
   end,
   lazy = true,
-  event = require("utils.lazy_lua").gitsigns,
+  event = require("utils.lazy_loading").gitsigns,
 }

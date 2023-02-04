@@ -57,4 +57,7 @@ return {
       },
     })
   end,
+  -- lazy = true,
+  event = require("utils.lazy_loading").dashboard,
+  cmd = "Dashboard"
 }

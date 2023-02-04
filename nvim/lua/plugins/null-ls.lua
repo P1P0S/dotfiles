@@ -30,7 +30,7 @@ return {
             callback = function()
               --vim.lsp.buf.formatting_sync()
               -- vim 0.8
-              vim.lsp.buf.format({ timeout_ms = 2000 })
+              --vim.lsp.buf.format({ timeout_ms = 2000 })
             end,
           })
         end

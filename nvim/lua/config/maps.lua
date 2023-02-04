@@ -27,18 +27,24 @@ keymap.set("n", "J", "mzJ`z")
 
 keymap.set("n", "<C-u>", "<C-u>zz") -- Scroll and place in the middle
 keymap.set("n", "<C-p>", "<C-d>zz")
+
 wk.register({
+  -- Utils
   u = {
     name = "Utils",
     c = { ":set ff=unix<CR>", "Convert File To Unix" },
     t = { ":tabedit", "Tab Edit" },
     n = { ":noh<Return>", "Remove Search Highlight" },
   },
+
+  -- Window
   w = {
     name = "Window",
     h = { ":split<Return><C-w>w", "Split Horizontal" },
     v = { ":vsplit<Return><C-w>w", "Split Vertical" },
   },
+
+  -- LSP
   l = {
     name = "LSP",
     o = { "<Cmd>Lspsaga outline<CR>", "LSP Outline" },
@@ -52,19 +58,27 @@ wk.register({
     p = { "<Cmd>Lspsaga peek_definition<CR>", "LSP Peek Definition" },
     a = { "<Cmd>Lspsaga code_action<CR>", "LSP Code Action" },
   },
+
+  -- Buffers
   b = {
     name = "Buffers",
     p = { ":BufferLinePick<CR>", "Peeck Buffer" },
     c = { ":BufferLinePickClose<CR>", "Close Buffer" },
     t = { ":BufferLineTogglePin<CR>", "Pin Buffer" },
   },
+
+  -- NvimTree
   e = {
     { ":NvimTreeToggle<Return>", "Open NvimTree" },
   },
+
+  -- Package Reader
   p = {
     ":lua require('packagereader').show_scripts()<CR>",
     "Run PackageReader",
   },
+
+  -- Git
   g = {
     name = "Git",
     n = { ":Gitsigns next_hunk<cr>", "Next Hunk" },
@@ -77,4 +91,69 @@ wk.register({
     b = { ":Gitsigns blame_line<cr>", "Blame Line" },
     d = { ":Gitsigns diffthis<cr>", "Diff" },
   },
+
+  -- Lazy
+  L = {
+    { "<cmd>Lazy<cr>", "Lazy 💤" },
+  },
+
+  -- Telescope
+  t = {
+    name = "Telescope",
+    f = {
+      function()
+        require("telescope.builtin").find_files({
+          no_ignore = false,
+          hidden = true,
+        })
+      end,
+      "Find File",
+    },
+    w = {
+      function()
+        require("telescope.builtin").live_grep()
+      end,
+      "Find Word",
+    },
+    b = {
+      function()
+        require("telescope.builtin").buffers()
+      end,
+      "Show Buffers",
+    },
+    h = {
+      function()
+        require("telescope.builtin").help_tags()
+      end,
+      "Help Tags",
+    },
+    r = {
+      function()
+        require("telescope.builtin").resume()
+      end,
+      "Resume",
+    },
+    d = {
+      function()
+        require("telescope.builtin").diagnostics()
+      end,
+      "Diagnostics",
+    },
+    c = {
+      function()
+        require("telescope.builtin").colorscheme()
+      end,
+      "Colorscheme",
+    },
+  },
+
+  -- Format
+  f = {
+    "<cmd> lua vim.lsp.buf.format({ timeout_ms = 2000 }) <cr>", "Format"
+  },
+
+  -- Dashboard
+  d = {
+    "<cmd> Dashboard <cr>", "Dashboard"
+  }
 }, opts)

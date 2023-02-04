@@ -1,7 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   config = function()
-    Servers = require("utils.lists").lspservers
+    local servers = require("utils.lists").lspservers
     local capabilities = require("cmp_nvim_lsp").default_capabilities() -- nvim cmp
     local nvim_lsp = require("lspconfig")
     local on_attach = function(client)
@@ -9,7 +9,7 @@ return {
       client.server_capabilities.documentRangeFormattingProvider = false
     end
 
-    for _, lsp in ipairs(Servers) do
+    for _, lsp in ipairs(servers) do
       nvim_lsp[lsp].setup({
         on_attach = on_attach,
         capabilities = capabilities,
@@ -40,14 +40,5 @@ return {
   end,
   dependencies = {
     { "hrsh7th/cmp-nvim-lsp" },
-    {
-      "williamboman/mason-lspconfig.nvim",
-      config = function()
-        require("mason-lspconfig").setup({
-          ensure_installed = Servers,
-          automatic_installation = true,
-        })
-      end,
-    },
   },
 }

@@ -26,4 +26,6 @@ return {
     vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
     vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
   end,
+  lazy = true,
+  event = require("utils.lazy_loading").bufferline
 }
