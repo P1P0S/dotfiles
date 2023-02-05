@@ -1,9 +1,11 @@
+---@diagnostic disable: undefined-global
 -- vim.opt = set
 -- vim.g = let
 vim.cmd([[set shellquote= shellxquote=]])
 local opt = vim.opt
 local g = vim.g
 local wo = vim.wo
+opt.guifont = "VictorMono NF"
 
 -- nightfly theme
 g.nightflyCursorColor = true
@@ -33,7 +35,7 @@ opt.backup = false
 opt.showcmd = true
 opt.cmdheight = 1
 opt.shortmess:append({ c = true, F = true, W = true, I = true })
-opt.laststatus = 3
+opt.laststatus = 2
 opt.expandtab = true
 opt.scrolloff = 10
 opt.shell = "pwsh"
