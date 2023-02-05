@@ -92,6 +92,7 @@ wk.register({
       p = { ":Gitsigns prev_hunk<cr>", "Prev Hunk" },
       g = { ":Gitsigns get_hunks<cr>", "Get Hunks" },
       P = { ":Gitsigns preview_hunk<cr>", "Preview Hunk" },
+      r = { ":Gitsigns reset_hunk<cr>", "Reset Hunk" },
       i = { ":Gitsigns preview_hunk_inline<cr>", "Preview Hunk Inline" },
     },
     t = {
