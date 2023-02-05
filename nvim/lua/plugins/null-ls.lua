@@ -16,7 +16,6 @@ return {
         diagnostics_format = "[eslint] #{m}\n(#{c})",
       }),
       actions.eslint_d,
-      actions.gitsigns,
     }
 
     local augroup = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
