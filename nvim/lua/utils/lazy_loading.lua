@@ -37,6 +37,7 @@ M.dashboard = function()
       if vim.fn.argc() == 0 and vim.fn.line2byte("$") == -1 then
         vim.cmd("Dashboard")
         require("lazy").load({ plugins = "telescope.nvim" })
+        vim.api.nvim_command("lua vim.opt.laststatus = 2")
       end
     end,
   })
