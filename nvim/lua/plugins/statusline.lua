@@ -84,7 +84,7 @@ local colors = {
       function()
         local current_line = vim.fn.line(".")
         local total_lines = vim.fn.line("$")
-        local chars = { "█ ", "▇ ", "▆ ", "▅ ", "▄ ", "▃ ", "▂ ", "▁ ", "_ " }
+        local chars = { "█ ", "▇ ", "▆ ", "▅ ", "▄ ", "▃ ", "▂ ", "_ ", "▁ ", }
         local line_ratio = current_line / total_lines
         local index = math.ceil(line_ratio * #chars)
         return chars[index]
@@ -161,7 +161,13 @@ local colors = {
     })
 
     ins_left({
-      -- Lsp server name
+      function()
+        return require("utils.clock").get_current_time()
+      end,
+    })
+
+    ins_right({
+      -- Lsp and null-ls server name
       function()
         local msg = "No Active Lsp"
         local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
@@ -169,17 +175,17 @@ local colors = {
         if next(clients) == nil then
           return msg
         end
-        local matches = {}
+        local lsp_clients = {}
         for _, client in ipairs(clients) do
           local filetypes = client.config.filetypes
-          if vim.tbl_contains(filetypes, buf_ft) then
-            table.insert(matches, client.name)
+          if client.name ~= "null-ls" and vim.tbl_contains(filetypes, buf_ft) then
+            table.insert(lsp_clients, client.name)
           end
         end
-        if next(matches) == nil then
+        if next(lsp_clients) == nil then
           return msg
         else
-          return table.concat(matches, ", ")
+          return table.concat(lsp_clients, ", ")
         end
       end,
       icon = " ",
@@ -228,7 +234,7 @@ local colors = {
       function()
         local current_line = vim.fn.line(".")
         local total_lines = vim.fn.line("$")
-        local chars = { "_", "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" }
+        local chars = {  "▁", "_", "▂", "▃", "▄", "▅", "▆", "▇", "█" }
         local line_ratio = current_line / total_lines
         local index = math.ceil(line_ratio * #chars)
         return chars[index]
