@@ -4,6 +4,7 @@ return {
     local null_ls = require("null-ls")
     local formatting = null_ls.builtins.formatting
     local diagnostics = null_ls.builtins.diagnostics
+    local actions = null_ls.builtins.code_actions
 
     local sources = {
       formatting.prettier.with({
@@ -14,6 +15,8 @@ return {
       diagnostics.eslint_d.with({
         diagnostics_format = "[eslint] #{m}\n(#{c})",
       }),
+      actions.eslint_d,
+      actions.gitsigns,
     }
 
     local augroup = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
