@@ -22,6 +22,7 @@ return {
         week_header = {
           enable = true,
         },
+        disable_move = true,
         shortcut = {
           {
             desc = " Update",
@@ -57,7 +58,7 @@ return {
       },
     })
   end,
-  -- lazy = true,
+  lazy = true,
   event = require("utils.lazy_loading").dashboard,
-  cmd = "Dashboard"
+  cmd = "Dashboard",
 }
