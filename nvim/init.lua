@@ -4,4 +4,4 @@ require("config.lazy")
 require("config.maps")
 require("packagereader")
 
-vim.cmd.colorscheme([[tokyonight]])
+vim.cmd.colorscheme([[tokyonight-night]])
