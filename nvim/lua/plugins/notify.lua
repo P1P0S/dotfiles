@@ -6,7 +6,6 @@ return {
       timeout = 1000,
       render = "default",
     })
-    vim.notify = require("notify")
   end,
   keys = {
     {
@@ -17,10 +16,4 @@ return {
       desc = "Delete all Notifications",
     },
   },
-  init = function()
-    vim.notify = function(...)
-      require("lazy").load({ plugins = { "nvim-notify" } })
-      vim.notify(...)
-    end
-  end,
 }
