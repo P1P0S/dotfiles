@@ -5,7 +5,7 @@ vim.cmd([[set shellquote= shellxquote=]])
 local opt = vim.opt
 local g = vim.g
 local wo = vim.wo
-opt.guifont = "VictorMono NF"
+opt.guifont = "VictorMono Nerd Font"
 
 -- nightfly theme
 g.nightflyCursorColor = true
@@ -18,6 +18,7 @@ vim.scriptencoding = "utf-8"
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 opt.fileformat = "unix"
+opt.fileformats = "unix,dos"
 
 vim.wo.number = true
 wo.rnu = true

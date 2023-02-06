@@ -4,6 +4,7 @@ return {
     local cmp = require("cmp")
     local lspkind = require("lspkind")
     local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+    local luasnip = require("luasnip")
 
     cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
@@ -49,14 +50,17 @@ return {
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
         }),
+        ["<Tab>"] = cmp.mapping(function()
+          luasnip.jump(1)
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function()
+          luasnip.jump(1)
+        end, { "i", "s" }),
       }),
 
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
         { name = "buffer" },
         { name = "luasnip" },
-        { name = "nvim_lua" },
-        { name = "path" },
       }),
       formatting = {
         format = lspkind.cmp_format({
@@ -69,6 +73,10 @@ return {
         }),
       },
     })
+
+    -- load snippets
+    require("luasnip/loaders/from_vscode").lazy_load()
+
     vim.cmd([[
   set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault

@@ -17,10 +17,10 @@ return {
     end
 
     local signs = {
-      Error = " ",
-      Warn = " ",
-      Hint = " ",
-      Info = " ",
+      Error = "",
+      Warn = "",
+      Hint = "",
+      Info = "",
     }
 
     for type, icon in pairs(signs) do
@@ -30,7 +30,7 @@ return {
 
     vim.diagnostic.config({
       virtual_text = {
-        prefix = "●",
+        prefix = "",
       },
       update_in_insert = true,
       float = {

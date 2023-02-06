@@ -8,7 +8,7 @@ return {
       },
       highlight = {
         enable = true,
-        disable = { "html" },
+        --disable = { "html" },
         additional_vim_regex_highlighting = false,
       },
       ensure_installed = langs,
