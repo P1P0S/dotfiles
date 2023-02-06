@@ -79,7 +79,7 @@ wk.register({
 
   -- Package Reader
   p = {
-    ":lua require('packagereader').show_scripts()<CR>",
+    ":lua require('packagereader').init()<CR>",
     "Run PackageReader",
   },
 
