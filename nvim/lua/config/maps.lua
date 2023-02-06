@@ -77,9 +77,9 @@ wk.register({
     { ":NvimTreeToggle<Return>", "Open NvimTree" },
   },
 
-  -- Package Reader
+  -- PackageReader
   p = {
-    ":lua require('packagereader').init()<CR>",
+    " <cmd> PackageReader <cr> ",
     "Run PackageReader",
   },
 
