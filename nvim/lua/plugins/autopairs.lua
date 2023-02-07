@@ -10,7 +10,6 @@ return {
         javascript = { "string", "template_string" },
         java = false,
       },
-      disable_filetype = { "TelescopePrompt", "spectre_panel" },
       ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]], "%s+", ""),
       enable_moveright = true,
       ---@usage disable when recording or executing a macro
