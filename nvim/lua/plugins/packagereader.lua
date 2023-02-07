@@ -5,4 +5,6 @@ return {
       manager = "yarn"
     })
   end,
+  lazy = true,
+  cmd = "PackageReader",
 }
