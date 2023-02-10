@@ -1,7 +1,6 @@
-require("plugins")
-require("config")
-require("maps")
-require("packagereader")
+-- first require initial config
+require("config.options")
+require("config.lazy")
+require("config.maps")
 
--- Theme
-vim.cmd([[colorscheme tokyonight-night]])
+vim.cmd.colorscheme([[tokyonight-night]])
