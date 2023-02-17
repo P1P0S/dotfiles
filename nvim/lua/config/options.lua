@@ -7,10 +7,6 @@ local g = vim.g
 local wo = vim.wo
 opt.guifont = "VictorMono Nerd Font"
 
--- nightfly theme
-g.nightflyCursorColor = true
-g.nightflyNormalFloat = true
-g.nightflyUnderlineMatchParen = true
 opt.termguicolors = true
 vim.cmd("autocmd!")
 
@@ -39,6 +35,7 @@ opt.shortmess:append({ c = true, F = true, W = true, I = true })
 opt.laststatus = 3
 opt.expandtab = true
 opt.scrolloff = 10
+opt.signcolumn = "yes"
 opt.shell = "pwsh"
 opt.shellcmdflag =
   "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
@@ -50,7 +47,7 @@ opt.smarttab = true
 opt.breakindent = true
 opt.shiftwidth = 2
 opt.nuw = 1
-opt.tabstop = 4
+opt.tabstop = 2
 opt.wrap = false -- No Wrap lines
 opt.backspace = { "start", "eol", "indent" }
 opt.path:append({ "**" }) -- Finding files - Search down into subfolders
