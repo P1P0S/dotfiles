@@ -19,10 +19,11 @@ M.gitsigns = function()
 end
 
 M.bufferline = function()
-  autocmd({ "BufReadPre" }, {
+  autocmd({ "BufReadPre", "TabNewEntered" }, {
     callback = function()
       local current_bufnr = vim.api.nvim_get_current_buf()
-      if current_bufnr ~= 1 then
+      local current_tab = vim.api.nvim_get_current_tabpage()
+      if current_bufnr ~= 1 or current_tab > 1 then
         vim.schedule(function()
           require("lazy").load({ plugins = "nvim-bufferline.lua" })
         end)
