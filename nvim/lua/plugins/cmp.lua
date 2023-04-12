@@ -50,18 +50,12 @@ return {
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
         }),
-        -- ["<Tab>"] = cmp.mapping(function()
-        --   luasnip.jump(1)
-        -- end, { "i", "s" }),
-        -- ["<S-Tab>"] = cmp.mapping(function()
-        --   luasnip.jump(1)
-        -- end, { "i", "s" }),
       }),
 
       sources = cmp.config.sources({
-        { name = "buffer" },
         { name = "luasnip" },
         { name = "nvim_lsp" },
+        { { name = "buffer" } },
       }),
       formatting = {
         format = lspkind.cmp_format({
@@ -72,6 +66,13 @@ return {
             return vim_item
           end,
         }),
+      },
+    })
+
+    cmp.setup.cmdline({ "/", "?" }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer" },
       },
     })
 
@@ -99,6 +100,7 @@ return {
   smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 ]])
   end,
+  build = "make install_jsregexp",
   dependencies = {
     {
       "onsails/lspkind.nvim",
