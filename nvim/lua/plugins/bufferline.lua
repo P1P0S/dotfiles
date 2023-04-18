@@ -5,12 +5,11 @@ return {
       highlights = {
         buffer_selected = {
           fg = "#cdd6f4",
-          --bg = "",
         },
       },
       options = {
         mode = "buffers",
-        separator_style = "thin",
+        separator_style = "slant",
         always_show_bufferline = false,
         show_buffer_close_icons = true,
         color_icons = true,
@@ -20,6 +19,33 @@ return {
           local icon = level:match("error") and " " or " "
           return " " .. icon .. count
         end,
+
+        -- groups
+        groups = {
+          options = {
+            toggle_hidden_on_enter = true,
+          },
+          items = {
+            {
+              name = "Tests", -- Mandatory
+              matcher = function(buf) -- Mandatory
+                return buf.filename:match("%_test") or buf.filename:match("%_spec")
+              end,
+            },
+            {
+              name = "Docs",
+              auto_close = false, -- whether or not close this group if it doesn't contain the current buffer
+              matcher = function(buf)
+                return buf.filename:match("%.md") or buf.filename:match("%.txt")
+              end,
+            },
+          },
+        },
+
+        -- numbers
+        numbers = function(opts)
+          return string.format("%s", opts.raise(opts.ordinal))
+        end,
       },
     })
 
@@ -27,5 +53,5 @@ return {
     vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
   end,
   lazy = true,
-  event = require("utils.lazy_loading").bufferline
+  event = require("utils.lazy_loading").bufferline,
 }
