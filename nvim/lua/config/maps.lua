@@ -7,6 +7,9 @@ local function pc(func)
   return "<Cmd>lua require('pommodoro-clock')." .. func .. "<CR>"
 end
 
+-- Ugaterm
+keymap.set("t", "<C-n>", "<C-\\><C-n>") -- Exit terminal mode
+
 keymap.set("n", "<A-q>", ":wq<CR>")
 keymap.set("n", "x", '"_x') -- Not yank to clipboard
 keymap.set("n", "db", 'vb"_d') -- Delete a word backwards
@@ -181,5 +184,17 @@ wk.register({
     l = { pc('start("long_break")'), "Long Break" },
     p = { pc("toggle_pause()"), "Toggle Pause" },
     c = { pc("close()"), "Close" },
+  },
+
+  -- Ugaterm
+  o = {
+    name = "Ugaterm",
+    o = { ":UgatermOpen<cr>", "Open Term" },
+    n = { ":UgatermNew<cr>", "New Term" },
+    h = { ":UgatermHide<cr>", "Hide Term" },
+    t = { ":UgatermToggle<cr>", "Toggle Term" },
+    s = { ":UgatermSelect<cr>", "Select Term" },
+    d = { ":UgatermDelete<cr>", "Delete Term" },
+    r = { ":UgatermRename<cr>", "Rename Term" },
   },
 }, opts)
