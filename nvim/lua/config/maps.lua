@@ -10,6 +10,18 @@ end
 -- Ugaterm
 keymap.set("t", "<C-n>", "<C-\\><C-n>") -- Exit terminal mode
 
+-- Bufferline
+keymap.set("n", "<A-1>", "<Cmd>BufferLineGoToBuffer 1<CR>", { silent = true })
+keymap.set("n", "<A-2>", "<Cmd>BufferLineGoToBuffer 2<CR>", { silent = true })
+keymap.set("n", "<A-3>", "<Cmd>BufferLineGoToBuffer 3<CR>", { silent = true })
+keymap.set("n", "<A-4>", "<Cmd>BufferLineGoToBuffer 4<CR>", { silent = true })
+keymap.set("n", "<A-5>", "<Cmd>BufferLineGoToBuffer 5<CR>", { silent = true })
+keymap.set("n", "<A-6>", "<Cmd>BufferLineGoToBuffer 6<CR>", { silent = true })
+keymap.set("n", "<A-7>", "<Cmd>BufferLineGoToBuffer 7<CR>", { silent = true })
+keymap.set("n", "<A-8>", "<Cmd>BufferLineGoToBuffer 8<CR>", { silent = true })
+keymap.set("n", "<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>", { silent = true })
+keymap.set("n", "<A-$>", "<Cmd>BufferLineGoToBuffer -1<CR>", { silent = true })
+
 keymap.set("n", "<A-q>", ":wq<CR>")
 keymap.set("n", "x", '"_x') -- Not yank to clipboard
 keymap.set("n", "db", 'vb"_d') -- Delete a word backwards
@@ -72,7 +84,10 @@ wk.register({
     name = "Buffers",
     p = { ":BufferLinePick<CR>", "Peeck Buffer" },
     c = { ":BufferLinePickClose<CR>", "Close Buffer" },
-    t = { ":BufferLineTogglePin<CR>", "Pin Buffer" },
+    t = { ":BufferLineTogglePin<CR>", "Toggle Pin Buffer" },
+    s = { ":BufferLineSortByExtension<CR>", "Sort Buffers" },
+    g = { ":BufferLineGroupToggle ", "Group Toggle <Name>", silent = false },
+    d = { ":BufferLineGroupClose ", "Group Close <Name>", silent = false },
   },
 
   -- NvimTree
