@@ -3,7 +3,7 @@ return {
   config = function()
     require("ugaterm").setup({
       ---@type string The terminal buffer name prefix.
-      prefix = "ugaterm",
+      prefix = "terminal://",
       ---@type string The filetype for a terminal buffer.
       filetype = "ugaterm",
 
