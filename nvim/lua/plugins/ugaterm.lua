@@ -23,4 +23,6 @@ return {
       end,
     })
   end,
+  lazy = true,
+  cmd = require("utils.lazy_loading").ugaterm_cmds,
 }

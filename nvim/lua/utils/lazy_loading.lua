@@ -54,4 +54,9 @@ M.telescope_cmds = {
   "Telescope diagnostics",
 }
 
+M.ugaterm_cmds = {
+  "UgatermOpen",
+  "UgatermNew",
+}
+
 return M
