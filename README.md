@@ -39,6 +39,8 @@
 <li>lspkind</li>
 <li>lspsaga</li>
 <li>mason</li>
+<li>mason-lspconfig</li>
+<li>neosolarized</li>
 <li>noice</li>
 <li>notify</li>
 <li>null-ls</li>
@@ -50,6 +52,7 @@
 <li>telescope</li>
 <li>tokyonight</li>
 <li>treesitter</li>
+<li>ugaterm</li>
 <li>whichkey</li>
 </ul>
 </details>
