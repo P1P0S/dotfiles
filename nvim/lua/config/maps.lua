@@ -22,13 +22,13 @@ keymap.set("n", "<A-8>", "<Cmd>BufferLineGoToBuffer 8<CR>", { silent = true })
 keymap.set("n", "<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>", { silent = true })
 keymap.set("n", "<A-$>", "<Cmd>BufferLineGoToBuffer -1<CR>", { silent = true })
 
-keymap.set("n", "<A-q>", ":wq<CR>")
+keymap.set("n", "<A-q>", ":wq<CR>", {silent = true})
 keymap.set("n", "x", '"_x') -- Not yank to clipboard
 keymap.set("n", "db", 'vb"_d') -- Delete a word backwards
 keymap.set("n", "<C-a>", "gg<S-v>G") -- Select all
-keymap.set("n", "<C-s>", ":w<Return>") -- Save
+keymap.set("n", "<C-s>", ":w<Return>", {silent = true}) -- Save
 keymap.set("n", "te", ":tabedit ") -- New tab
-keymap.set("n", "<C-x>", ":bdelete<CR>")
+keymap.set("n", "<C-x>", ":bdelete<CR>", {silent = true})
 -- Move window
 keymap.set("", "<C-h>", "<C-w>h")
 keymap.set("", "<C-j>", "<C-w>j")
