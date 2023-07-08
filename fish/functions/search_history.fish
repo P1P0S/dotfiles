@@ -1,5 +1,5 @@
 function search_history
-  set values (history | fzf --prompt=' Search history  ' --height=50% --layout=reverse --border)
+  set values (history | fzf --prompt=' Search history  ' --height=50% --layout=reverse --border --exact)
 
   if test -z $values
     echo "Nothing selected"
