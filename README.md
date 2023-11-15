@@ -1,28 +1,5 @@
 # dotfiles
 
-## lvim
-<b>[No longer supported]</b>
-
-<details><summary><b>Plugins (Click to expand!):</b></summary>
-<ul>
-<li>blankline</li>
-<li>colorizer</li>
-<li>defx</li>
-<li>stanline</li>
-<li>tabline</li>
-</ul>
-</details>
-
-## nvchad
-<b>[No longer supported]</b>
-
-<details><summary><b>Plugins (Click to expand!):</b></summary>
-<ul>
-<li>lspconfig</li>
-<li>null-ls</li>
-</ul>
-</details>
-
 ## nvim
 
 <details><summary><b>Plugins (Click to expand!):</b></summary>
@@ -64,13 +41,16 @@ For removal of the line go to the config folder and comment line 56 and 57.
 </details>
 
 ## powershell
+
 Some shortcuts for powershell using $PROFILE and the initialization of the Starship Theme Engine (Oh My Posh Engine is commented if you want to use it instead).
 
 Theme for Windows Terminal using [Oh-My-Posh](https://ohmyposh.dev/).
+
 <details><summary><b>Themes</b></summary>
 ![pokemon-posh]()
 ![starship]()
 </details>
 
 ## starship
+
 Config file for the new Terminal Theme Engine used.
