@@ -5,10 +5,29 @@ return {
     require("noice").setup {
       cmdline = {
         enabled = true, -- enables the Noice cmdline UI
-        view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+        lsp = {
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+          signature = { enabled = false },
+          hover = { enabled = false },
+        },
+        view = "cmdline_popup",
         opts = {}, -- global options for the cmdline. See section on views
+        routes = {
+          {
+            filter = {
+              view = "notify",
+              event = "msg_show",
+              kind = "",
+              find = "written",
+            },
+            opts = { skip = true },
+          },
+        },
         ---@diagnostic disable-next-line: undefined-doc-name
-        ---@type table<string, CmdlineFormat>
         format = {
           -- conceal: (default=true) This will hide the text in the cmdline that matches the pattern.
           -- view: (default is cmdline view)

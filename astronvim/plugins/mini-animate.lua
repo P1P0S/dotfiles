@@ -3,7 +3,11 @@ return {
   event = "VeryLazy",
   opts = function(_, opts)
     opts.scroll = {
-      enable = false,
+      enable = true,
     }
+    if vim.g.neovide then
+      opts.scroll = { enable = false }
+      opts.cursor = { enable = false }
+    end
   end,
 }

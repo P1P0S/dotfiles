@@ -1,28 +1,6 @@
 return {
-  { "sainnhe/everforest" },
   {
     "rebelot/kanagawa.nvim",
-    config = function()
-      require("kanagawa").setup {
-        theme = "wave",
-        background = {
-          dark = "wave",
-          light = "lotus",
-        },
-      }
-    end,
-  },
-  {
-    "nyoom-engineering/oxocarbon.nvim",
-    config = function() end,
-  },
-  {
-    "luisiacc/gruvbox-baby",
-    config = function() end,
-  },
-  {
-    "dasupradyumna/midnight.nvim",
-    config = function() end,
   },
   {
     "catppuccin/nvim",
@@ -33,6 +11,23 @@ return {
     end,
   },
   {
-    "akai54/2077.nvim",
+    "LunarVim/synthwave84.nvim",
+    config = function()
+      require("synthwave84").setup {
+        glow = {
+          error_msg = true,
+          type2 = true,
+          func = true,
+          keyword = true,
+          operator = false,
+          buffer_current_target = true,
+          buffer_visible_target = true,
+          buffer_inactive_target = true,
+        },
+      }
+    end,
   },
+  { "oni0002/neg.vim" },
+  { "folke/tokyonight.nvim" },
+  { "neanias/everforest-nvim" },
 }

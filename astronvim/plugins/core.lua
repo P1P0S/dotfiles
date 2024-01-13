@@ -18,10 +18,10 @@ return {
       local cmp = require "cmp"
       opts.sources = cmp.config.sources {
         { name = "nvim_lsp", priority = 1000 },
+        { name = "codeium", priority = 800 },
         { name = "luasnip", priority = 750 },
         { name = "buffer", priority = 500 },
         { name = "path", priority = 250 },
-        { name = "codeium", priority = 100 },
       }
       return opts
     end,
@@ -39,5 +39,13 @@ return {
   {
     "max397574/better-escape.nvim",
     enabled = false,
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = function(_, opts)
+      opts.user_default_options = {
+        tailwind = true,
+      }
+    end,
   },
 }
