@@ -1,60 +1,80 @@
 format = """
+$os\
 $hostname\
 $username\
+$shell\
 $directory\
 $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
 $fill\
+$bun\
 $package\
 $nodejs\
-$cmd_duration $jobs $time\
+$python\
+$rust\
+$c\
+$lua\
+$cmd_duration $jobs $time $localip\
 $line_break\
 $character"""
 
+[shell]
+fish_indicator = '󰈺 '
+powershell_indicator = '_'
+zsh_indicator = '  '
+unknown_indicator = 'mystery shell'
+style = 'cyan bold'
+disabled = true
+
+[localip]
+ssh_only = true
+format = '[$localipv4](bold red)'
+disabled = false
+
+[os.symbols]
+Arch = "󰣇 "
+Linux = " "
+Windows = " "
+
+[os]
+disabled = false
+format = "[$symbol]($style)"
+
 [hostname]
-ssh_only = false
+ssh_only = true 
 format = '[$hostname](bold red) '
-trim_at = '.companyname.com'
 disabled = false
 
 [username]
 style_user = 'white bold'
 style_root = 'black bold'
-format = 'as [$user]($style) '
+format = '[$user]($style)'
 disabled = false
-show_always = true
+show_always = false
 
 [directory]
-style = "blue"
-read_only = " "
+style = "#8aadf4"
+read_only = " "
 truncation_length = 4
-truncate_to_repo = true
+truncate_to_repo = true 
+truncation_symbol = "…/"
+home_symbol = "  "
 
 [fill]
-symbol = " "
+symbol = "•"
 
 [character]
-success_symbol = "[❯](purple)"
+success_symbol = "[❯](green)"
 error_symbol = "[❯](red)"
-vicmd_symbol = "[❮](green)"
+vicmd_symbol = "[❮](purple)"
 
 [git_branch]
 symbol = " "
 format = "[$symbol$branch]($style) "
-style = "bright-black"
-
-[jobs]
-symbol = ""
-style = "bold red"
-number_threshold = 1
-format = "[$symbol]($style)"
-
-[time]
-disabled = false
-style = "bold white"
-format = "🕙[$time]($style) "
+# style = "bright-black"
+style = "#f5bde6"
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
@@ -65,14 +85,42 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
 
 [git_metrics]
+disabled = false 
+
+[jobs]
+symbol = ""
+style = "bold red"
+number_threshold = 1
+format = "[$symbol]($style)"
+
+[time]
 disabled = false
+style = "bold white"
+time_format = "%R"
+format = '🕐[$time]($style)'
 
 [cmd_duration]
-format = ' \[⏰[$duration]($style)\]'
+format = ' ⏰[$duration]($style)'
 style = "yellow"
 
 [nodejs]
-format = '\[[$symbol($version)]($style)\]'
+format = ' [$symbol($version)]($style)'
+
+[bun]
+format = ' [$symbol($version)]($style)'
 
 [package]
-format = '\[[$symbol$version]($style)\] '
+format = ' [$symbol($version)]($style)'
+
+[python]
+format = ' [${symbol}${pyenv_prefix}(${version}) (\($virtualenv\))]($style)'
+
+[rust]
+format = ' [$symbol($version)]($style)'
+
+[c]
+format = ' [$symbol($version)]($style)'
+
+[lua]
+symbol = '🌖'
+format = ' [$symbol($version)]($style)'
