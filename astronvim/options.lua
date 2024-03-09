@@ -1,5 +1,11 @@
 return {
-  opt = {
-    colorcolumn = "90",
+  o = {
+    signcolumn = "yes"
   },
+  opt = {
+    inccommand = "split",
+    scrolloff = 10,
+    smartindent = true,
+    colorcolumn = "90",
+  }
 }
