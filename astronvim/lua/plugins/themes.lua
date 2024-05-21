@@ -33,6 +33,6 @@ return {
   { "neanias/everforest-nvim" },
   { "datsfilipe/min-theme.nvim" },
   { "projekt0n/github-nvim-theme" },
-  {"rose-pine/neovim"},
-  {"Shatur/neovim-ayu"}
+  { "rose-pine/neovim" },
+  { "Shatur/neovim-ayu" },
 }

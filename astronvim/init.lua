@@ -1,42 +1,19 @@
----@diagnostic disable: undefined-global
-local neovide = require "user.utils.neovide"
-local discipline = require "user.utils.discipline"
-discipline.cowboy()
+-- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution
+-- This file doesn't necessarily need to be touched, BE CAUTIOUS editing this file and proceed at your own risk.
+local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
+  -- stylua: ignore
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
+end
+vim.opt.rtp:prepend(lazypath)
 
-local themes = {
-  maachiato = "catppuccin-macchiato",
-  mocha = "catppuccin-mocha",
-  night = "tokyonight-night",
-  storm = "tokyonight-storm",
-  moon = "tokyonight-moon",
-  wave = "kanagawa-wave",
-  dragon = "kanagawa-dragon",
-  min = "min-theme",
-  solar_night = "solarized-osaka-night",
-  rose = "rose-pine",
-  mirage = "ayu-mirage",
-  synthwave84,
-  everforest,
-  neg,
-}
+-- validate that lazy is available
+if not pcall(require, "lazy") then
+  -- stylua: ignore
+  vim.api.nvim_echo({ { ("Unable to load lazy from: %s\n"):format(lazypath), "ErrorMsg" }, { "Press any key to exit...", "MoreMsg" } }, true, {})
+  vim.fn.getchar()
+  vim.cmd.quit()
+end
 
-local selected_theme = "ayu"
-
-return {
-  colorscheme = themes[selected_theme] or selected_theme,
-  neovide,
-
-  icons = {
-    VimIcon = "",
-    GitBranch = "",
-  },
-  -- modify variables used by heirline but not defined in the setup call directly
-  heirline = {
-    -- define the separators between each section
-    separators = {
-      left = { "", " " }, -- separator for the left side of the statusline
-      right = { " ", "" }, -- separator for the right side of the statusline
-      tab = { "", "" },
-    },
-  },
-}
+require "lazy_setup"
+require "polish"
