@@ -2,17 +2,6 @@
 
 -- Customize None-ls sources
 
-local prettier_files = {
-  ".prettierrc",
-  ".prettierrc.json",
-  ".prettierrc.js",
-  ".prettierrc.yaml",
-  ".prettierrc.yml",
-  ".prettierrc.toml",
-  ".prettierrc.mjs",
-  ".prettierrc.cjs",
-}
-
 local eslint_files = {
   ".eslintrc",
   ".eslintrc.js",
@@ -45,7 +34,7 @@ return {
       }),
       null_ls.register(require("none-ls.diagnostics.eslint").with {
         condition = function(utils) return utils.root_has_file { eslint_files } end,
-        -- diagnostics_format = "[eslint] #{m}\n(#{c})",
+        diagnostics_format = "[eslint] #{m}\n(#{c})",
       }),
       null_ls.register(require("none-ls.code_actions.eslint").with {
         condition = function(utils) return utils.root_has_file { eslint_files } end,

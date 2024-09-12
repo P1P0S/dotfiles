@@ -12,16 +12,16 @@ return {
   opts = {
     -- Configuration table of features provided by AstroLSP
     features = {
-      autoformat = true, -- enable or disable auto formatting on start
+      autoformat = false, -- enable or disable auto formatting on start
       codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = false, -- enable/disable inlay hints on start
+      inlay_hints = true, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = false, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -42,6 +42,7 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
+      -- "ts_ls"
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
@@ -102,8 +103,17 @@ return {
     -- A custom `on_attach` function to be run after the default `on_attach` function
     -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
     on_attach = function(client, bufnr)
+      local tailwind_files = { "tailwind.config.js", "tailwind.config.ts" }
       -- this would disable semanticTokensProvider for all
       -- client.server_capabilities.semanticTokensProvider = nil
+      if client.name == "tailwindcss" then
+        local util = require "lspconfig.util"
+        local root_dir = util.root_pattern(unpack(tailwind_files))(vim.fn.getcwd())
+        if not root_dir then
+          -- Desativa o servidor se o arquivo de configuração não for encontrado
+          client.stop()
+        end
+      end
     end,
   },
 }

@@ -15,5 +15,8 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
+vim.opt.colorcolumn = "90"
+
 require "lazy_setup"
 require "polish"
+require "utils.neovide"
