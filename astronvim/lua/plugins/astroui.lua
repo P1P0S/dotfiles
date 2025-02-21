@@ -10,15 +10,15 @@ return {
   "AstroNvim/astroui",
   ---@type AstroUIOpts
   opts = {
-    status = {
-      separators = {
-        left = { "", " " },
-        right = { " ", "" },
-        tab = { "", "" },
-      },
-    },
+    -- 	status = {
+    -- 		separators = {
+    -- 			left = { "", " " },
+    -- 			right = { " ", "" },
+    -- 			tab = { "", "" },
+    -- 		},
+    -- },
     -- change colorscheme
-    colorscheme = "ayu",
+    colorscheme = "tokyonight",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes

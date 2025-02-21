@@ -86,7 +86,10 @@ return {
     -- mappings to be set up on attaching of a language server
     mappings = {
       n = {
-        gl = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
+        gl = {
+          function() vim.diagnostic.open_float() end,
+          desc = "Hover diagnostics",
+        },
         -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
         -- gD = {
         --   function() vim.lsp.buf.declaration() end,
@@ -103,9 +106,15 @@ return {
     -- A custom `on_attach` function to be run after the default `on_attach` function
     -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
     on_attach = function(client, bufnr)
-      local tailwind_files = { "tailwind.config.js", "tailwind.config.ts" }
-      -- this would disable semanticTokensProvider for all
-      -- client.server_capabilities.semanticTokensProvider = nil
+      local tailwind_files = {
+        "tailwind.config.mjs",
+        "tailwind.config.cjs",
+        "tailwind.config.js",
+        "tailwind.config.ts",
+        "postcss.config.js",
+        "config/tailwind.config.js",
+        "assets/tailwind.config.js",
+      }
       if client.name == "tailwindcss" then
         local util = require "lspconfig.util"
         local root_dir = util.root_pattern(unpack(tailwind_files))(vim.fn.getcwd())

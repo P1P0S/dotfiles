@@ -1,7 +1,8 @@
-if vim.g.neovide then
+if vim.g.neovide == true then
   vim.o.guifont = "JetBrainsMono Nerd Font:h11"
+  vim.api.nvim_set_keymap("n", "<F11>", ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
   vim.opt.linespace = -1
-  vim.g.neovide_scale_factor = 1.0
+  vim.g.neovide_scale_factor = 0.9
   vim.g.neovide_padding_top = 1
   vim.g.neovide_padding_bottom = 1
   vim.g.neovide_padding_right = 1
@@ -18,4 +19,13 @@ if vim.g.neovide then
   vim.g.neovide_profiler = false -- enables the profiler, which shows a frametime graph in the upper left corner.
   vim.g.neovide_cursor_antialiasing = true
   vim.g.neovide_cursor_vfx_mode = "railgun" -- torpedo, pixiedust, sonicboom, ripple, wireframe
+
+  local home = os.getenv "HOME"
+  local additional_paths = {
+    home .. "/.asdf/shims",
+    home .. "/.cargo/bin",
+  }
+  vim.env.PATH = table.concat(additional_paths, ":") .. ":" .. vim.env.PATH
+
+  vim.api.nvim_create_autocmd("VimEnter", { command = "ProjectExplorer" })
 end

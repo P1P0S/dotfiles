@@ -20,3 +20,4 @@ vim.opt.colorcolumn = "90"
 require "lazy_setup"
 require "polish"
 require "utils.neovide"
+-- require("utils.discipline").cowboy({"neo-tree", "aerial"})

@@ -50,8 +50,14 @@ return {
         -- second key is the lefthand side of the map
 
         -- navigate buffer tabs with `H` and `L`
-        L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        L = {
+          function() require("astrocore.buffer").nav(vim.v.count1) end,
+          desc = "Next buffer",
+        },
+        H = {
+          function() require("astrocore.buffer").nav(-vim.v.count1) end,
+          desc = "Previous buffer",
+        },
 
         -- mappings seen under group name "Buffer"
         ["<Leader>bD"] = {
@@ -67,82 +73,14 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
         ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
+
+        -- Open float neotree
+        ["<Leader>e"] = { "<Cmd>Neotree toggle float<CR>", desc = "Toggle Explorer" },
       },
       t = {
         -- setting a mapping to false will disable it
         -- ["<esc>"] = false,
       },
     },
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      local cmp = require "cmp"
-      opts.sources = cmp.config.sources {
-        { name = "codeium", priority = 10000 },
-        { name = "nvim_lsp", priority = 1000 },
-        { name = "luasnip", priority = 750 },
-        { name = "buffer", priority = 500 },
-        { name = "path", priority = 250 },
-      }
-      return opts
-    end,
-  },
-  {
-    "onsails/lspkind.nvim",
-    opts = function(_, opts)
-      -- Add icon on lspkind
-      opts.symbol_map = vim.tbl_extend("force", opts.symbol_map, {
-        Codeium = "",
-      })
-      return opts
-    end,
-  },
-  {
-    "nvim-tree/nvim-web-devicons",
-    opts = function(_, opts)
-      opts = {
-        override_by_extension = {
-          ["typescriptreact"] = {
-            icon = "󰜈",
-            name = "typescriptreact",
-          },
-        },
-        override_by_filename = {
-          ["router.tsx"] = {
-            icon = "󰑪",
-            name = "router",
-            color = "#385C30",
-          },
-        },
-      }
-      return opts
-    end,
-  },
-  {
-    "rebelot/heirline.nvim",
-    opts = function(_, opts)
-      local status = require "astroui.status"
-      opts.winbar = {
-        condition = function() return status.condition.is_active() end,
-        status.component.separated_path {
-          path_func = status.provider.filename { modify = ":.:h" },
-        },
-        -- add the file name and icon
-        status.component.file_info {
-          file_icon = {
-            hl = status.hl.file_icon "winbar",
-            padding = { left = 0 },
-          },
-          filename = {},
-          filetype = false,
-          file_modified = false,
-          file_read_only = false,
-          hl = status.hl.get_attributes("winbarnc", true),
-          surround = false,
-          update = "BufEnter",
-        },
-      }
-    end,
   },
 }

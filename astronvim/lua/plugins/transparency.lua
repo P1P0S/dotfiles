@@ -1,7 +1,5 @@
 return {
   "xiyaowong/transparent.nvim",
-  cmd = "TransparentToggle",
-  config = function()
-    require("transparent").setup()
-  end
+  cmd = { "TransparentToggle", "TransparentEnable", "TransparentDisable" },
+  config = function() require("transparent").setup() end,
 }

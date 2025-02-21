@@ -1,5 +1,7 @@
 return {
-  "ggandor/leap.nvim",
-  config = function() require("leap").create_default_mappings() end,
-  event = "BufEnter",
+	"ggandor/leap.nvim",
+	config = function()
+		require("leap").create_default_mappings()
+	end,
+	event = "BufEnter",
 }

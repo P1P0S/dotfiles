@@ -113,11 +113,11 @@ return {
         },
         override = {
           -- override the default lsp markdown formatter with Noice
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           -- override the lsp markdown formatter with Noice
-          ["vim.lsp.util.stylize_markdown"] = false,
+          ["vim.lsp.util.stylize_markdown"] = true,
           -- override cmp documentation with Noice (needs the other options to work)
-          ["cmp.entry.get_documentation"] = false,
+          ["cmp.entry.get_documentation"] = true,
         },
         hover = {
           enabled = false,
@@ -127,7 +127,7 @@ return {
           opts = {}, -- merged with defaults from documentation
         },
         signature = {
-          enabled = false,
+          enabled = true,
           auto_open = {
             enabled = true,
             trigger = true, -- Automatically show signature help when typing a trigger character from the LSP
@@ -185,22 +185,26 @@ return {
         -- you can enable a preset by setting it to true, or a table that will override the preset config
         -- you can also add custom presets that you can enable/disable with enabled=true
         bottom_search = false, -- use a classic bottom cmdline for search
-        command_palette = false, -- position the cmdline and popupmenu together
+        command_palette = true, -- position the cmdline and popupmenu together
         long_message_to_split = false, -- long messages will be sent to a split
-        inc_rename = false, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = false, -- add a border to hover docs and signature help
+        inc_rename = true, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = true, -- add a border to hover docs and signature help
       },
       throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
       ---@type NoiceConfigViews
-      views = {}, ---@see section on views
+      views = {
+        split = {
+          enter = true,
+        },
+      }, ---@see section on views
       ---@type NoiceRouteConfig[]
       routes = {
         {
           filter = {
             event = "msg_show",
-            kind = "",
-            find = "written",
+            find = "process%.processTicksAndRejections",
           },
+          opts = { skip = true },
         },
       }, --- @see section on routes
       ---@type table<string, NoiceFilter>
