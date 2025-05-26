@@ -1,12 +1,36 @@
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
+-- You can also add or configure plugins by creating files in this `plugins/` folder
+-- PLEASE REMOVE THE EXAMPLES YOU HAVE NO INTEREST IN BEFORE ENABLING THIS FILE
+-- Here are some examples:
+vim.opt.colorcolumn = "80"
+
+---@type LazySpec
 return {
-  -- == Overriding Plugins ==
+  -- == Examples of Overriding Plugins ==
+
+  -- customize dashboard options
   {
-    "goolord/alpha-nvim",
-    opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {}
-      return opts
-    end,
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = table.concat({
+            " █████  ███████ ████████ ██████   ██████ ",
+            "██   ██ ██         ██    ██   ██ ██    ██",
+            "███████ ███████    ██    ██████  ██    ██",
+            "██   ██      ██    ██    ██   ██ ██    ██",
+            "██   ██ ███████    ██    ██   ██  ██████ ",
+            "",
+            "███    ██ ██    ██ ██ ███    ███",
+            "████   ██ ██    ██ ██ ████  ████",
+            "██ ██  ██ ██    ██ ██ ██ ████ ██",
+            "██  ██ ██  ██  ██  ██ ██  ██  ██",
+            "██   ████   ████   ██ ██      ██",
+          }, "\n"),
+        },
+      },
+    },
   },
 
   -- You can disable default plugins as follows:
@@ -51,89 +75,5 @@ return {
         Rule("a", "a", "-vim")
       )
     end,
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      local cmp = require "cmp"
-      opts.sources = cmp.config.sources {
-        { name = "codeium", priority = 10000 },
-        { name = "nvim_lsp", priority = 1000 },
-        { name = "luasnip", priority = 750 },
-        { name = "buffer", priority = 500 },
-        { name = "path", priority = 250 },
-      }
-      return opts
-    end,
-  },
-  {
-    "onsails/lspkind.nvim",
-    opts = function(_, opts)
-      -- Add icon on lspkind
-      opts.symbol_map = vim.tbl_extend("force", opts.symbol_map, {
-        Codeium = "",
-      })
-      return opts
-    end,
-  },
-  {
-    "nvim-tree/nvim-web-devicons",
-    opts = function(_, opts)
-      opts = {
-        override_by_extension = {
-          ["typescriptreact"] = {
-            icon = "󰜈",
-            name = "typescriptreact",
-          },
-        },
-        override_by_filename = {
-          ["router.tsx"] = {
-            icon = "󰑪",
-            name = "router",
-            color = "#385C30",
-          },
-        },
-      }
-      return opts
-    end,
-  },
-  {
-    "rebelot/heirline.nvim",
-    opts = function(_, opts)
-      local status = require "astroui.status"
-      opts.winbar = {
-        condition = function() return status.condition.is_active() end,
-        status.component.separated_path {
-          path_func = status.provider.filename { modify = ":.:h" },
-        },
-        -- add the file name and icon
-        status.component.file_info {
-          file_icon = {
-            hl = status.hl.file_icon "winbar",
-            padding = { left = 0 },
-          },
-          filename = {},
-          filetype = false,
-          file_modified = false,
-          file_read_only = false,
-          hl = status.hl.get_attributes("winbarnc", true),
-          surround = false,
-          update = "BufEnter",
-        },
-      }
-    end,
-  },
-  {
-    "goolord/alpha-nvim",
-    cond = function() return not vim.g.neovide end,
-  },
-  {
-    "folke/which-key.nvim",
-    -- classic | morden | helix
-    opts = function(_, opts) opts.preset = "helix" end,
-  },
-  {
-    "rcarriga/nvim-notify",
-    opts = function(_, opts) opts.background_colour = "#000000" end,
   },
 }

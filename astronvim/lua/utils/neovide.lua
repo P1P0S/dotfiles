@@ -1,4 +1,5 @@
 if vim.g.neovide == true then
+  -- vim.o.guifont = "JetBrainsMono Nerd Font:h11"
   vim.o.guifont = "JetBrainsMono Nerd Font:h11"
   vim.api.nvim_set_keymap("n", "<F11>", ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
   vim.opt.linespace = -1
@@ -27,5 +28,5 @@ if vim.g.neovide == true then
   }
   vim.env.PATH = table.concat(additional_paths, ":") .. ":" .. vim.env.PATH
 
-  vim.api.nvim_create_autocmd("VimEnter", { command = "ProjectExplorer" })
+  -- vim.api.nvim_create_autocmd("VimEnter", { command = "ProjectExplorer" })
 end
