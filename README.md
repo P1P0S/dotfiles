@@ -1,5 +1,23 @@
 # dotfiles
 
+## astrovim v5
+
+<details><summary><b>Plugins (Click o expand!):</b></summary>
+<ul>
+<li>neocodium</li>
+<li>cordvim</li>
+<li>astrocore</li>
+<li>astrolsp</li>
+<li>astroui</li>
+<li>keybinds</li>
+<li>leap</li>
+<li>mason</li>
+<li>neotest</li>
+<li>none-ls</li>
+<li>treesitter</li>
+</ul>
+</details>
+
 ## nvim
 
 <details><summary><b>Plugins (Click to expand!):</b></summary>
