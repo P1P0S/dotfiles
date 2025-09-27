@@ -1,3 +1,4 @@
 return {
-  {"Shatur/neovim-ayu"}
+  { "Shatur/neovim-ayu" },
+  { "folke/tokyonight.nvim" },
 }

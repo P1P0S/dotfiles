@@ -1,6 +1,7 @@
 if vim.g.neovide == true then
+  -- disable mini.animate
   -- vim.o.guifont = "JetBrainsMono Nerd Font:h11"
-  vim.o.guifont = "JetBrainsMono Nerd Font:h11"
+  vim.o.guifont = "IosevkaTerm Nerd Font:h11"
   vim.api.nvim_set_keymap("n", "<F11>", ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
   vim.opt.linespace = -1
   vim.g.neovide_scale_factor = 0.9
