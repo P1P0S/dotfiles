@@ -100,19 +100,42 @@ return {
     -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
     on_attach = function(client, bufnr)
       if client.name == "ts_ls" then
-        local null_ls = require "null-ls"
-        local sources = require "null-ls.sources"
-        local ft = vim.bo[bufnr].filetype
-        local available_formatters = sources.get_available(ft, null_ls.methods.FORMATTING)
+        local update_ts_ls_capabilities = function()
+          local has_alternative_formatter = false
 
-        client.server_capabilities.documentFormattingProvider = vim.tbl_isempty(available_formatters)
+          for _, other_client in ipairs(vim.lsp.get_clients { bufnr = bufnr }) do
+            if other_client.name == "eslint" then
+              has_alternative_formatter = true
+              break
+            end
+          end
 
-        if vim.g.ts_ls_format_notify_shown ~= true then
-          vim.g.ts_ls_format_notify_shown = true
-          vim.notify(
-            "ts_ls formatting " .. (client.server_capabilities.documentFormattingProvider and "enabled" or "disabled")
-          )
+          if not has_alternative_formatter then
+            local null_ls = require "null-ls"
+            local sources = require "null-ls.sources"
+            local ft = vim.bo[bufnr].filetype
+            local available_formatters = sources.get_available(ft, null_ls.methods.FORMATTING)
+            has_alternative_formatter = not vim.tbl_isempty(available_formatters)
+          end
+
+          client.server_capabilities.documentFormattingProvider = not has_alternative_formatter
+          client.server_capabilities.documentRangeFormattingProvider = not has_alternative_formatter
+
+          if has_alternative_formatter and vim.g.ts_ls_disabled_notify_shown ~= true then
+            vim.g.ts_ls_disabled_notify_shown = true
+            vim.notify "ts_ls formatting disabled"
+          elseif not has_alternative_formatter and vim.g.ts_ls_enabled_notify_shown ~= true then
+            vim.g.ts_ls_enabled_notify_shown = true
+            vim.notify "ts_ls formatting enabled"
+          end
         end
+
+        update_ts_ls_capabilities()
+
+        vim.api.nvim_create_autocmd("LspAttach", {
+          buffer = bufnr,
+          callback = update_ts_ls_capabilities,
+        })
       end
     end,
   },
