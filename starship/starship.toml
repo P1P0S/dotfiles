@@ -68,7 +68,10 @@ symbol = "•"
 [character]
 success_symbol = "[❯](green)"
 error_symbol = "[❯](red)"
-vicmd_symbol = "[❮](purple)"
+vicmd_symbol = "[](green)"
+vimcmd_replace_one_symbol = "[](purple)"
+vimcmd_replace_symbol = "[](purple)"
+vimcmd_visual_symbol = "[](purple)"
 
 [git_branch]
 symbol = " "
@@ -94,7 +97,7 @@ number_threshold = 1
 format = "[$symbol]($style)"
 
 [time]
-disabled = false
+disabled = true
 style = "bold white"
 time_format = "%R"
 format = '🕐[$time]($style)'

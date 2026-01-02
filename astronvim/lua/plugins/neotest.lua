@@ -6,7 +6,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-neotest/nvim-nio",
     "nvim-neotest/neotest-jest",
-    -- "marilari88/neotest-vitest",
+    "marilari88/neotest-vitest",
     {
       "AstroNvim/astroui",
       opts = {
