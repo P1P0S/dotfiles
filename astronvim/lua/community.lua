@@ -8,8 +8,6 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.motion.leap-nvim" },
-  -- { import = "astrocommunity.completion.codeium-nvim" },
   -- import/override with your plugins folder
 }

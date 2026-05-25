@@ -58,7 +58,7 @@ return {
       prettier = register_prettier,
       biome = register_biome,
       checkstyle = register_checkstyle,
-      -- tsserver = register_tsserver_formatting,
+      tsserver = register_tsserver_formatting,
     }
   end,
 }
